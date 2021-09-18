@@ -6,6 +6,7 @@
     <NavTabs />
     <Slider />
     <quotes />
+    <Collections />
   </div>
 </template>
 
@@ -13,13 +14,15 @@
 import Quotes from "../components/Quotes.vue";
 import NavTabs from "./../components/NavTabs.vue";
 import Slider from "./../components/Slider.vue";
+import Collections from "./../components/Collections.vue";
 
 export default {
   name: "Home",
   components: {
     NavTabs,
     Slider,
-    Quotes
+    Quotes,
+    Collections
   }
 };
 </script>

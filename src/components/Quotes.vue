@@ -1,5 +1,5 @@
 <template>
-  <div class="container d-flex flex-column">
+  <div class="d-flex flex-column">
     <div class="qutoe-item d-flex justify-content-start">
       <div class="qutoe-item-img ">
         <img src="./../assets/img/quote/1.png" alt="" />
