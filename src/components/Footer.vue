@@ -4,7 +4,8 @@
       <div class="d-flex justify-content-start">
         <div class="footer-info-section">
           <h4>快速鏈接</h4>
-          <hr />
+          <div class="footer-section-line"></div>
+
           <ul class="">
             <li><a href="/blogs/blog">最新消息</a></li>
 
@@ -16,9 +17,9 @@
           </ul>
         </div>
 
-        <div class="">
+        <div class="footer-info-section">
           <h4>關注我們</h4>
-          <hr />
+          <div class="footer-section-line"></div>
 
           <ul class="">
             <li>
@@ -79,7 +80,7 @@
 
       <div class="">
         <div class="d-flex justify-content-center">
-          <p class="">xxstudiotw &copy; 2021</p>
+          <p class="copyright">xxstudiotw &copy; 2021</p>
         </div>
         <div class="d-flex justify-content-center">
           <p class="">
