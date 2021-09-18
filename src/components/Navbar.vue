@@ -5,22 +5,12 @@
  navbar-brand p-2 ml-auto"
       to="/"
     >
-      xxstudiotw
+      <span class="shop-name">
+        xxstudiotw
+      </span>
     </router-link>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon" />
-    </button>
-
-    <form class="search-container">
+    <form class="search-container d-flex align-items-center">
       <input
         type="text"
         id="search-bar"
@@ -32,6 +22,18 @@
           src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
       /></a>
     </form>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
     <div id="navbarSupportedContent" class="navbar-collapse collapse ">
       <div

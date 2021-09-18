@@ -1,7 +1,7 @@
 <template>
   <div id="xxstudiotw">
     <Navbar />
-    <main role="main" class="m-5 bg-white">
+    <main role="main" class="container bg-white">
       <router-view />
     </main>
   </div>
@@ -17,3 +17,9 @@ export default {
   components: { Navbar }
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  margin-top: 70px;
+}
+</style>

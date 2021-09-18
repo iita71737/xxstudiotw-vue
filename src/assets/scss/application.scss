@@ -5,12 +5,18 @@
 .bg-nav {
     background-color: #CE9F6F;
     border: 0.2px grey dashed;
+    padding: 0px;
+}
+
+.shop-name {
+  font-size: 30px;
 }
 
 .search-container {
-  width: 490px;
+  width: 360px;
   display: block;
   margin: 0 auto;
+  
 }
 
 input#search-bar {
@@ -20,6 +26,8 @@ input#search-bar {
   padding: 0 20px;
   font-size: 1rem;
   border: 1px solid #d0cfce;
+  border-radius: 15px;
+
   outline: none;
   &:focus {
     border: 1px solid #008abf;
@@ -41,10 +49,22 @@ input#search-bar {
 }
 .search-icon {
   position: relative;
-  float: right;
   width: 75px;
   height: 75px;
-  top: -62px;
-  right: -45px;
+  left: -20px
+
 }
 
+.nav-tabs {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.nav-dropdown {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+
+}
