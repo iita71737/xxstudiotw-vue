@@ -3,7 +3,7 @@
 }
 
 .bg-nav {
-    background-color: #CE9F6F;
+    background-color: #E2BE9F;
     border: 0.2px grey dashed;
     padding: 0px;
 }
@@ -67,4 +67,8 @@ input#search-bar {
   outline: 0;
   list-style: none;
 
+}
+
+.qutoe-item-img > img{
+  height: 150px;
 }
