@@ -6,7 +6,13 @@
     <NavTabs />
     <Slider />
     <quotes />
-    <Collections />
+    <div class="row">
+      <CollectionCard
+        v-for="item in collections"
+        :key="item.id"
+        :initial-collection="item"
+      />
+    </div>
   </div>
 </template>
 
@@ -14,7 +20,10 @@
 import Quotes from "../components/Quotes.vue";
 import NavTabs from "./../components/NavTabs.vue";
 import Slider from "./../components/Slider.vue";
-import Collections from "./../components/Collections.vue";
+import CollectionCard from "../components/CollectionCard.vue";
+import jsonfile from "./../../public/dummyData.json";
+
+const dummyData = jsonfile;
 
 export default {
   name: "Home",
@@ -22,7 +31,19 @@ export default {
     NavTabs,
     Slider,
     Quotes,
-    Collections
+    CollectionCard
+  },
+  data() {
+    return { collections: "" };
+  },
+  created() {
+    this.fetchCollections();
+  },
+  methods: {
+    fetchCollections() {
+      this.collections = dummyData.accessories;
+      //console.log(this.collections);
+    }
   }
 };
 </script>

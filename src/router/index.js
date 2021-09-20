@@ -13,6 +13,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/collection/:id',
+    name: 'collection',
+    component: () => import('../views/Collection.vue')
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: () => import('../views/Cart.vue')

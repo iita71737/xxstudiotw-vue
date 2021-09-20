@@ -1,11 +1,11 @@
 #xxstudiotw {
-    font-family:"Caveat",cursive, "Noto Sans TC", sans-serif;
+  font-family: "Caveat", cursive, "Noto Sans TC", sans-serif;
 }
 
 .bg-nav {
-    background-color: #E2BE9F;
-    border: 0.2px grey dashed;
-    padding: 0px;
+  background-color: #e2be9f;
+  border: 0.2px grey dashed;
+  padding: 0px;
 }
 
 .shop-name {
@@ -16,7 +16,6 @@
   width: 360px;
   display: block;
   margin: 0 auto;
-  
 }
 
 input#search-bar {
@@ -51,8 +50,7 @@ input#search-bar {
   position: relative;
   width: 75px;
   height: 75px;
-  left: -20px
-
+  left: -20px;
 }
 
 .nav-tabs {
@@ -66,7 +64,6 @@ input#search-bar {
   border: 0;
   outline: 0;
   list-style: none;
-
 }
 
 .qutoe-item {
@@ -74,14 +71,35 @@ input#search-bar {
   padding: 1rem;
 }
 
-.qutoe-item-img > img{
+.qutoe-item-img > img {
   height: 150px;
 }
 
 //cards
-.container {
+
+.card-deck,
+.card {
+  flex: 0 1 auto;
+  margin: 0.1rem;
+  padding: 0px;
+}
+
+.card {
+  width: 240px;
+  height: 240px;
+  margin: 2px;
+}
+
+.card-img {
+  object-fit: contain;
+  width: 100%;
   height: 100%;
 }
+
+.card-title {
+  font-size: 24px;
+}
+
 .card-img-overlay {
   transform: translateY(16rem);
   transition: transform 0.18s ease-in;
@@ -98,7 +116,7 @@ input#search-bar {
 }
 .card {
   overflow: hidden;
-  background-color: #345;
+  background-color: rgb(110, 114, 117);
   &:hover {
     .card-img {
       mix-blend-mode: overlay;
@@ -106,7 +124,7 @@ input#search-bar {
     .card-img-overlay {
       transform: translateY(0);
       transition: transform 0.25s ease-out;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(207, 204, 204, 0.096);
     }
     .card-text {
       opacity: 1;
@@ -121,7 +139,7 @@ input#search-bar {
   }
 }
 
-.footer-container{
+.footer-container {
   margin-top: 25px;
 }
 
@@ -129,11 +147,31 @@ input#search-bar {
   width: 50%;
 }
 
-.footer-section-line{
-  border:0.1rem lightgray solid;
+.footer-section-line {
+  border: 0.1rem lightgray solid;
   width: 80%;
 }
 
 .copyright {
   font-size: 24px;
+}
+
+.slider-container {
+  height: 180px;
+}
+
+.card-container {
+  object-fit: contain;
+  height: 150px;
+}
+
+.nav-tabs {
+  border-top: 0px;
+}
+.nav-item:hover,
+.nav-item > a.active {
+  box-shadow: 2px -2px 4px 0.5px #242424;
+  -webkit-box-shadow: 2px -2px 4px 0.5px #242424;
+  -moz-box-shadow: 2px -2px 4px 0.5px #242424;
+  -o-box-shadow: 2px -2px 4px 0.5px #242424;
 }
