@@ -15,7 +15,23 @@
         <div class="info-container row mt-4">
           <div class="col-sm-6">
             <div class="main-img">
-              <img class="card-img" :src="item.image.img1" />
+              <img
+                ref="img"
+                class="card-img image"
+                :src="item.image.img1"
+                @click="showModal(item.image.img1)"
+              />
+              <!-- The Modal -->
+              <div id="myModal" class="modal" ref="modal">
+                <!-- The Close Button -->
+                <span class="close" @click="closeModal()">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01" ref="modalImg" />
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption" ref="captionText">{{ item.name }}</div>
+              </div>
             </div>
 
             <div class="side-img row ">
@@ -24,7 +40,12 @@
                 v-for="img in item.image"
                 :key="img.id"
               >
-                <img class="card-img " :src="img" />
+                <img
+                  class="card-img image"
+                  :src="img"
+                  ref="img"
+                  @click="showModal(img)"
+                />
               </div>
             </div>
           </div>
@@ -169,6 +190,15 @@ export default {
     return {
       item: { ...this.initialCollection }
     };
+  },
+  methods: {
+    showModal(url) {
+      this.$refs.modal.style.display = "block";
+      this.$refs.modalImg.src = url;
+    },
+    closeModal() {
+      this.$refs.modal.style.display = "none";
+    }
   }
 };
 </script>
