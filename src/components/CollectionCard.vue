@@ -2,7 +2,7 @@
   <router-link :to="{ name: 'collection', params: { id: item.id } }">
     <div class="card-deck">
       <div class="card text-white col">
-        <img class="card-img" :src="item.image.img1" />
+        <img class="card-img" :src="item.image[1]" />
         <div class="card-img-overlay">
           <h2 class="card-title">{{ item.name }}</h2>
           <p class="card-text">

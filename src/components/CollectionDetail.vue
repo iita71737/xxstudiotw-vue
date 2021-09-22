@@ -1,6 +1,44 @@
 <template>
   <div class="">
     <div class="row">
+      <!-- The Modal/Lightbox -->
+      <div id="myModal" class="modal" ref="modal">
+        <span class="close cursor" @click="closeModal()">&times;</span>
+        <div class="modal-content ">
+          <div
+            class="mySlides hover-shadow"
+            ref="slides"
+            v-for="img in item.image"
+            :key="img.id"
+          >
+            <div class="numbertext">{{ item.name }}</div>
+            <img :src="img" style="width:100%" />
+          </div>
+
+          <!-- Next/previous controls -->
+          <a class="prev" @click="plusSlides(-1)">&#10094;</a>
+          <a class="next" @click="plusSlides(1)">&#10095;</a>
+
+          <!-- Caption text -->
+          <div class="caption-container">
+            <p id="caption" ref="captionText"></p>
+          </div>
+
+          <!-- Thumbnail image controls -->
+          <div class="column ">
+            <img
+              v-for="(img, key) in item.image"
+              :key="img.id"
+              ref="dots"
+              class="demo"
+              :src="img"
+              @click="currentSlide(key)"
+              alt="Nature"
+            />
+          </div>
+        </div>
+      </div>
+      <!--Modal-->
       <div>
         <div>
           <nav>
@@ -17,34 +55,28 @@
             <div class="main-img">
               <img
                 ref="img"
-                class="card-img image"
-                :src="item.image.img1"
-                @click="showModal(item.image.img1)"
+                class="card-img image hover-shadow"
+                :src="item.image[0]"
+                @click="
+                  openModal();
+                  currentSlide(0);
+                "
               />
-              <!-- The Modal -->
-              <div id="myModal" class="modal" ref="modal">
-                <!-- The Close Button -->
-                <span class="close" @click="closeModal()">&times;</span>
-
-                <!-- Modal Content (The Image) -->
-                <img class="modal-content" id="img01" ref="modalImg" />
-
-                <!-- Modal Caption (Image Text) -->
-                <div id="caption" ref="captionText">{{ item.name }}</div>
-              </div>
             </div>
-
             <div class="side-img row ">
               <div
                 class="card-container col-sm-4 p-2"
-                v-for="img in item.image"
+                v-for="(img, key) in item.image"
                 :key="img.id"
               >
                 <img
                   class="card-img image"
                   :src="img"
                   ref="img"
-                  @click="showModal(img)"
+                  @click="
+                    openModal();
+                    currentSlide(key);
+                  "
                 />
               </div>
             </div>
@@ -178,6 +210,8 @@
 </template>
 
 <script>
+var slideIndex = 0;
+
 export default {
   name: "collectdetail",
   props: {
@@ -191,14 +225,153 @@ export default {
       item: { ...this.initialCollection }
     };
   },
+  created() {},
   methods: {
-    showModal(url) {
+    openModal() {
       this.$refs.modal.style.display = "block";
-      this.$refs.modalImg.src = url;
     },
     closeModal() {
       this.$refs.modal.style.display = "none";
+    },
+    plusSlides(n) {
+      this.showSlides((slideIndex += n));
+    },
+    currentSlide(n) {
+      console.log(n);
+      this.showSlides((slideIndex = n));
+    },
+    showSlides(n) {
+      if (n >= this.item.image.length) {
+        slideIndex = 0;
+      }
+      if (n < 0) {
+        slideIndex = this.item.image.length;
+      }
+      for (let i = 0; i < this.item.image.length; i++) {
+        this.$refs.slides[i].style.display = "none";
+      }
+      for (let i = 0; i < this.item.image.length; i++) {
+        this.$refs.dots[i].className = this.$refs.dots[i].className.replace(
+          " active",
+          ""
+        );
+      }
+      this.$refs.slides[slideIndex].style.display = "block";
+      this.$refs.dots[slideIndex].className += " active";
+      this.$refs.captionText.innerHTML = this.$refs.dots[slideIndex].alt;
     }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.row > .column {
+  padding: 0 8px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} /* Create four equal columns that floats next to eachother */
+.column {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+.demo {
+  width: 240px;
+  object-fit: contain;
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  //z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+} /* Modal
+Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+} /* The Close Button
+*/
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+} /* Hide the slides by default */
+.mySlides {
+  display: none;
+} /* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+} /* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+} /* On hover, add a black background color with a
+little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+} /* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+} /* Caption
+text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+img.hover-shadow {
+  transition: 0.3s;
+}
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>

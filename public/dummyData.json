@@ -318,14 +318,15 @@
             "material": "9K金，鋯石",
             "color": "淺金",
             "seal": "Au375",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/21948454.jpg?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/21948455.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/21948456.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/f/6477378.png",
-                "other": "https://cdn.store-assets.com/s/270188/f/6505694.png"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/21948454.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/21948455.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/21948456.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6477378.png",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ]
+            ,
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
