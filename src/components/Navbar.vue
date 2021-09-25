@@ -53,7 +53,7 @@
           <button type="button" class="btn btn-sm btn-success my-2 my-sm-0">
             登出
           </button>
-          <router-link to="{ name: 'cart' }" class="text-dark mr-3 p-2">
+          <router-link :to="{ name: 'checkout' }" class="text-dark mr-3 p-2">
             <i class="fas fa-shopping-cart"
               ><span class="m-1">購物車 </span>
             </i>

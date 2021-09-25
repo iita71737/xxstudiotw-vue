@@ -12,14 +12,14 @@
             "material": "9K金，鋯石",
             "color": "淡金",
             "seal": "AU375",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22109326.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22109327.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/i/22109325.jpg?width=1024&format=webp",
-                "img6": "https://cdn.store-assets.com/s/270188/i/22109321.jpg?width=1024&format=webp"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109326.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109327.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109325.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109321.jpg?width=1024&format=webp"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -50,13 +50,13 @@
             "material": "14K金",
             "color": "淡金",
             "seal": "AU585（14K金標準含量）",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22109160.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22109163.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/i/22109168.jpg?width=1024&format=webp"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109160.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109163.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109168.jpg?width=1024&format=webp"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -89,15 +89,15 @@
             "material": "14K金",
             "color": "淡金",
             "seal": "AU585（14K金標準含量）",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22108827.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22108828.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/i/22108829.jpg?width=1024&format=webp",
-                "img6": "https://cdn.store-assets.com/s/270188/i/22108830.jpg?width=1024&format=webp",
-                "other": "https://cdn.store-assets.com/s/270188/f/6506802.png"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108827.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108828.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108829.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108830.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6506802.png"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -128,13 +128,12 @@
             "material": "9K金",
             "color": "淡金",
             "seal": "375",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22108742.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22108743.jpg?width=1024&format=webp",
-                "other": ""
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108742.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108743.jpg?width=1024&format=webp"
+        ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -165,12 +164,11 @@
             "material": "14K金",
             "color": "淡金",
             "seal": "14K",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22108675.jpg?width=1024&format=webp",
-                "other": ""
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108675.jpg?width=1024&format=webp"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -201,13 +199,13 @@
             "material": "9K金，鋯石",
             "color": "淺金",
             "seal": "",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22103498.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22103522.jpg?width=1024&format=webp",
-                "other": "https://cdn.store-assets.com/s/270188/f/6505694.png"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103498.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103522.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -238,15 +236,15 @@
             "material": "9K金，鋯石",
             "color": "淺金",
             "seal": "Au375",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22108612.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22108614.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/i/22108613.jpg?width=1024&format=webp",
-                "img6": "https://cdn.store-assets.com/s/270188/i/22108611.jpg?width=1024&format=webp",
-                "other": "https://cdn.store-assets.com/s/270188/f/6505694.png"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108612.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108614.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108613.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108611.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",
@@ -278,15 +276,15 @@
             "material": "9K金，鋯石",
             "color": "淺金",
             "seal": "Au375",
-            "image": {
-                "img1": "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
-                "img2": "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
-                "img3": "https://cdn.store-assets.com/s/270188/i/22108588.jpg?width=1024&format=webp",
-                "img4": "https://cdn.store-assets.com/s/270188/i/22108589.jpg?width=1024&format=webp",
-                "img5": "https://cdn.store-assets.com/s/270188/i/22108586.jpg?width=1024&format=webp",
-                "img6": "https://cdn.store-assets.com/s/270188/i/22108587.jpg?width=1024&format=webp",
-                "other": "https://cdn.store-assets.com/s/270188/f/6505694.png"
-            },
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108588.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108589.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108586.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108587.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+        ],
             "remark": "真金材質可碰水，不過敏不褪色",
             "createdAt": "2021-09-08T08:34:40.000Z",
             "updatedAt": "2021-09-15T03:53:17.000Z",

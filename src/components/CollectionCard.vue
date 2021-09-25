@@ -52,12 +52,14 @@ export default {
         ...this.item,
         isInCart: true
       };
+      this.$emit("change-cart", this.item);
     },
     removeCart() {
       this.item = {
         ...this.item,
         isInCart: false
       };
+      this.$emit("change-cart", this.item);
     }
   }
 };

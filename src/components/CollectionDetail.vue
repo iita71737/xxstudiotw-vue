@@ -25,17 +25,52 @@
           </div>
 
           <!-- Thumbnail image controls -->
-          <div class="column ">
+          <!-- <div class="column ">
             <img
               v-for="(img, key) in item.image"
               :key="img.id"
               ref="dots"
-              class="demo"
+              class="demo "
               :src="img"
               @click="currentSlide(key)"
               alt="Nature"
             />
+          </div> -->
+
+          <!-- carousel-3d -->
+          <div class="carousel-container">
+            <carousel-3d
+              :controls-visible="true"
+              :controls-prev-html="'&#10092;'"
+              :controls-next-html="'&#10093;'"
+              :controls-width="30"
+              :controls-height="60"
+              :count="item.image.length"
+            >
+              <slide
+                v-for="(img, index) in item.image"
+                :index="index"
+                :key="index"
+              >
+                <template
+                  slot-scope="{ index, isCurrent, leftIndex, rightIndex }"
+                >
+                  <img
+                    ref="dots"
+                    @click="currentSlide(index)"
+                    :data-index="index"
+                    :class="{
+                      current: isCurrent,
+                      onLeft: leftIndex >= 0,
+                      onRight: rightIndex >= 0
+                    }"
+                    :src="img"
+                  />
+                </template>
+              </slide>
+            </carousel-3d>
           </div>
+          <!-- carousel-3d -->
         </div>
       </div>
       <!--Modal-->
@@ -101,11 +136,31 @@
                 </select>
               </div>
               <div class="btn-section row m-1">
-                <button class="btn btn-outline-dark mr-2" type="submit">
-                  buy now
-                </button>
-                <button class="btn btn-outline-dark" type="submit">
+                <router-link
+                  :to="{ name: 'checkout', params: item.id }"
+                  class="text-dark p-2"
+                >
+                  <button class="btn btn-outline-dark mr-2" type="submit">
+                    buy now
+                  </button>
+                </router-link>
+                <button
+                  v-if="!item.isInCart"
+                  type="button"
+                  class="btn btn-light
+            btn-border favorite mr-2"
+                  @click.stop.prevent="addCart"
+                >
                   加入購物車
+                </button>
+                <button
+                  v-else
+                  type="button"
+                  class="btn btn-light
+            btn-border favorite mr-2"
+                  @click.stop.prevent="removeCart"
+                >
+                  從購物車移除
                 </button>
               </div>
 
@@ -211,9 +266,14 @@
 
 <script>
 var slideIndex = 0;
+import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
   name: "collectdetail",
+  components: {
+    Carousel3d,
+    Slide
+  },
   props: {
     initialCollection: {
       type: Object,
@@ -225,7 +285,16 @@ export default {
       item: { ...this.initialCollection }
     };
   },
+  watch: {
+    initialCollection(newValue) {
+      this.item = {
+        ...this.item,
+        ...newValue
+      };
+    }
+  },
   created() {},
+  mounted() {},
   methods: {
     openModal() {
       this.$refs.modal.style.display = "block";
@@ -259,6 +328,14 @@ export default {
       this.$refs.slides[slideIndex].style.display = "block";
       this.$refs.dots[slideIndex].className += " active";
       this.$refs.captionText.innerHTML = this.$refs.dots[slideIndex].alt;
+    },
+    addCart() {
+      this.item = { ...this.item, isInCart: true };
+      this.$emit("change-cart", this.item);
+    },
+    removeCart() {
+      this.item = { ...this.item, isInCart: false };
+      this.$emit("change-cart", this.item);
     }
   }
 };
@@ -272,18 +349,13 @@ export default {
   content: "";
   display: table;
   clear: both;
-} /* Create four equal columns that floats next to eachother */
-.column {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  white-space: nowrap;
 }
-.demo {
-  width: 240px;
-  object-fit: contain;
+
+/* Create four equal columns that floats next to eachother */
+.carousel-container {
+  background-color: rgb(0, 0, 0);
 }
+
 /* The Modal (background) */
 .modal {
   display: none;

@@ -18,9 +18,24 @@ const routes = [
     component: () => import('../views/Collection.vue')
   },
   {
-    path: '/cart',
-    name: 'cart',
-    component: () => import('../views/Cart.vue')
+    path: '/checkout',
+    name: 'checkout',
+    component: () => import('../views/CheckoutPage.vue')
+  },
+  {
+    path: '/checkout/step1',
+    name: 'checkout/step1',
+    component: () => import('../views/CheckoutPage.vue')
+  },
+  {
+    path: '/checkout/step2',
+    name: 'checkout/step2',
+    component: () => import('../views/CheckoutPage.vue')
+  },
+  {
+    path: '/checkout/step3',
+    name: 'checkout/step3',
+    component: () => import('../views/CheckoutPage.vue')
   },
   {
     path: '/signin',

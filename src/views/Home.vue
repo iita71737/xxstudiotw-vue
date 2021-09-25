@@ -11,6 +11,7 @@
         v-for="item in collections"
         :key="item.id"
         :initial-collection="item"
+        @change-cart="afterCartChange"
       />
     </div>
   </div>
@@ -34,7 +35,17 @@ export default {
     CollectionCard
   },
   data() {
-    return { collections: "" };
+    return {
+      collections: ""
+    };
+  },
+  watch: {
+    collections: {
+      handler: function() {
+        console.log(this.collections); //測試用
+      },
+      deep: true
+    }
   },
   created() {
     this.fetchCollections();
@@ -43,6 +54,15 @@ export default {
     fetchCollections() {
       this.collections = dummyData.accessories;
       //console.log(this.collections);
+    },
+    afterCartChange(itemA) {
+      this.collections = this.collections.map(item => {
+        if (item.id == itemA.id) {
+          return itemA;
+        }
+        return item;
+      });
+      console.log(this.collections);
     }
   }
 };
