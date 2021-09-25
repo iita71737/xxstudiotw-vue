@@ -50,10 +50,11 @@
         />
         <FinishedMessage :v-if="this.steproute > 3" :step="step" />
       </div>
+      <!-- Carts -->
       <Carts
-        :cart-items="cartitems"
-        :shipping-cost="shippingCost"
+        :shipping-cost="this.shippingCost"
         :step="step"
+        @after-change-amount="handleOrder"
         v-show="this.step < 3"
       />
     </div>
@@ -111,8 +112,24 @@
           hide-header
         >
           <div>
-            <ul class="list-group" v-for="item in cartitems" :key="item.id">
-              <li class="list-group-item">{{ item }}</li>
+            <ul
+              class="list-group mb-2"
+              v-for="item in shoppingCart"
+              :key="item.id"
+            >
+              <li class="list-group-item">{{ item.name }}</li>
+              <li class="list-group-item">數量：{{ item.amount }}</li>
+              <li class="list-group-item">
+                單項總價：{{ item.price * item.amount }}
+              </li>
+            </ul>
+            <ul class="mt-3 ">
+              <li class="list-group-item">
+                運費：{{ this.formdata.shippingfee }}
+              </li>
+              <li class="list-group-item">
+                訂單總金額：{{ this.formdata.total }}
+              </li>
             </ul>
           </div>
         </b-modal>
@@ -130,23 +147,7 @@ import FormStepThree from "./../components/FormStepThree.vue";
 import Carts from "../components/Carts.vue";
 import FinishedMessage from "./../components/FinishedMessage.vue";
 import "./../assets/scss/carts.scss";
-
-const dummyCartitems = [
-  {
-    id: 5433,
-    name: "破壞補丁修身牛仔褲",
-    amount: 1,
-    price: 3999,
-    image: "https://upload.cc/i1/2021/05/23/bpjY2a.jpg"
-  },
-  {
-    id: 5434,
-    name: "低腰直筒牛仔褲",
-    amount: 2,
-    price: 1299,
-    image: "https://upload.cc/i1/2021/05/23/t2dVMp.jpeg"
-  }
-];
+import { mapState } from "vuex";
 
 const STORAGE_KEY = "xxstudio-carts";
 
@@ -177,9 +178,7 @@ export default {
     };
   },
   methods: {
-    fetchCartItems() {
-      this.cartitems = { ...dummyCartitems };
-    },
+    fetchCartItems() {},
     handlePrev() {
       if (this.step > 0) {
         this.step = this.step - 1;
@@ -257,11 +256,17 @@ export default {
     },
     handleCreditCard(data) {
       this.formdata = { ...this.formdata, data };
+    },
+    handleOrder(total) {
+      this.formdata = { ...this.formdata, total };
     }
   },
   created() {
     this.fetchCartItems();
     this.formdata = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  },
+  computed: {
+    ...mapState(["shoppingCart"])
   },
   watch: {
     formdata: {

@@ -1,17 +1,17 @@
 <template>
   <div class="step-form step-one" v-show="step == 0" @change="handleUserData()">
     <h3 class="step-title">寄送地址</h3>
-    <div class="step-row fullname-row">
-      <div class="title-row form-row">
+    <div class="step-row fullname-row row">
+      <div class="title-row form-row col-3">
         <label for="">稱謂</label>
-        <div class="select-wrapper">
+        <div class="select-wrapper ">
           <select name="" v-model="BI.sex">
             <option value="male" selected>先生</option>
             <option value="female">女士</option>
           </select>
         </div>
       </div>
-      <div class="name-row form-row">
+      <div class="name-row form-row col-7">
         <label for="">姓名</label>
         <input
           v-model="BI.name"

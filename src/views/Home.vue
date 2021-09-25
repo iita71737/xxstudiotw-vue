@@ -11,7 +11,6 @@
         v-for="item in collections"
         :key="item.id"
         :initial-collection="item"
-        @change-cart="afterCartChange"
       />
     </div>
   </div>
@@ -54,15 +53,6 @@ export default {
     fetchCollections() {
       this.collections = dummyData.accessories;
       //console.log(this.collections);
-    },
-    afterCartChange(itemA) {
-      this.collections = this.collections.map(item => {
-        if (item.id == itemA.id) {
-          return itemA;
-        }
-        return item;
-      });
-      console.log(this.collections);
     }
   }
 };

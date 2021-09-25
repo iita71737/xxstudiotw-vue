@@ -3,8 +3,8 @@
     <h4 class="cart-title">購物籃</h4>
     <div class="cart" id="cart">
       <!--  cart items to be redered  -->
-      <div class="cart-item" v-for="item in cartItems" :key="item.id">
-        <img :src="item.image" alt="itempic" />
+      <div class="cart-item" v-for="item in shoppingCart" :key="item.id">
+        <img :src="item.image[1]" alt="itempic" />
         <div class="item-info">
           <div class="item-info-left">
             <span class="item-title">{{ item.name }}</span>
@@ -39,34 +39,27 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "Carts",
   props: {
-    cartItems: {
-      type: Object,
-      required: true
-    },
     shippingCost: {
-      type: Number,
-      required: true
-    },
-    step: {
       type: Number,
       required: true
     }
   },
   data() {
     return {
-      carts: [],
       totalMoney: 0
     };
   },
+  computed: {
+    ...mapState(["shoppingCart"])
+  },
   methods: {
-    fetchCarts() {
-      this.carts = { ...this.cartItems };
-    },
-    changeMoney(item, way) {
-      if (way > 0) {
+    changeMoney(item, number) {
+      if (number > 0) {
         item.amount++;
       } else {
         item.amount--;
@@ -79,13 +72,15 @@ export default {
     },
     calcTotalPrice() {
       this.totalMoney = 0;
-      for (let i in this.carts) {
-        this.totalMoney += Number(this.carts[i].amount * this.carts[i].price);
+      for (let i in this.shoppingCart) {
+        this.totalMoney += Number(
+          this.shoppingCart[i].amount * this.shoppingCart[i].price
+        );
       }
+      this.$emit("after-change-amount", this.totalMoney);
     }
   },
   created() {
-    this.fetchCarts();
     this.calcTotalPrice();
   }
 };
