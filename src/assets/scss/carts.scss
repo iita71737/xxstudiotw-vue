@@ -147,10 +147,10 @@ input:invalid {
 %input-style {
   border: 1px solid var(--clr-form-input-border);
   width: 100%;
-  height: 40px;
-  font-size: 12px;
+  //height: 40px;
+  font-size: 18px;
   border-radius: 4px;
-  padding: 1em;
+  padding: 0.4em;
   &:hover,
   &:focus {
     border: 2.5px solid var(--clr-form-input-border);
@@ -253,7 +253,7 @@ main {
             > label {
               display: block;
               margin-bottom: 6px;
-              font-size: 12px;
+              font-size: 14px;
               font-weight: 700;
               color: var(--clr-form-label);
             }
@@ -279,7 +279,7 @@ main {
             }
           }
           .title-row {
-            width: 35%;
+            width: 100%;
             margin-right: 2rem;
           }
           .shipping-way {
@@ -318,15 +318,15 @@ main {
               .shipping-type {
                 width: 78%;
                 .shipping-title {
-                  font-size: 14px;
+                  font-size: 18px;
                   font-weight: 700;
                 }
                 .shipping-time {
-                  font-size: 12px;
+                  font-size: 18px;
                 }
               }
               .shipping-fee {
-                font-size: 12px;
+                font-size: 18px;
                 padding-bottom: 16px;
               }
             }
@@ -378,7 +378,7 @@ main {
               align-items: center;
               justify-content: space-between;
               .item-amount {
-                font-size: 14px;
+                font-size: 18px;
                 font-weight: 500;
               }
               .minus,
@@ -402,7 +402,7 @@ main {
                 }
                 i {
                   pointer-events: none;
-                  font-size: 12px;
+                  font-size: 14px;
                   font-weight: 600;
                 }
               }
@@ -422,7 +422,7 @@ main {
         padding: 16px 0;
         display: flex;
         justify-content: space-between;
-        font-size: 14px;
+        font-size: 18px;
       }
     }
   }
@@ -433,7 +433,7 @@ main {
       padding: 24px 0;
       border-top: 1px solid var(--clr-shipping-border);
       button {
-        font-size: 14px;
+        font-size: 18px;
         width: 30%;
         height: 45px;
         padding: 0 16px;
@@ -526,7 +526,7 @@ main {
             .step-wrapper {
               .step {
                 span {
-                  font-size: 13px;
+                  font-size: 14px;
                   display: flex;
                 }
               }

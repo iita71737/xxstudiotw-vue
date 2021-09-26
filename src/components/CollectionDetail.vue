@@ -329,9 +329,20 @@ export default {
       this.$refs.dots[slideIndex].className += " active";
       this.$refs.captionText.innerHTML = this.$refs.dots[slideIndex].alt;
     },
-    addCart() {
-      this.item = { ...this.item, isInCart: true };
-      this.$store.commit("setShoppingCart", this.item);
+    addCart(itemId) {
+      this.item = {
+        ...this.item,
+        isInCart: true
+      };
+      if (this.shoppingCart.length != 0) {
+        this.shoppingCart.map(item => {
+          if (item.id !== itemId) {
+            this.$store.commit("setShoppingCart", this.item);
+          }
+        });
+      } else {
+        this.$store.commit("setShoppingCart", this.item);
+      }
     },
     removeCart() {
       this.item = { ...this.item, isInCart: false };

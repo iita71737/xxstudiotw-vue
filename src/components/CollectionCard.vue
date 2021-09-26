@@ -13,7 +13,7 @@
             type="button"
             class="btn btn-light
             btn-border favorite mr-2"
-            @click.stop.prevent="addCart"
+            @click.stop.prevent="addCart(item.id)"
           >
             加入購物車
           </button>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "Colllection",
   props: {
@@ -46,13 +48,25 @@ export default {
       item: this.initialCollection
     };
   },
+  computed: {
+    ...mapState(["shoppingCart"])
+  },
   methods: {
-    addCart() {
+    addCart(itemId) {
       this.item = {
         ...this.item,
         isInCart: true
       };
-      this.$store.commit("setShoppingCart", this.item);
+      if (this.shoppingCart.length !== 0) {
+        this.shoppingCart.map(item => {
+          if (item.id !== itemId) {
+            this.$store.commit("setShoppingCart", this.item);
+          }
+          return;
+        });
+      } else {
+        this.$store.commit("setShoppingCart", this.item);
+      }
     },
     removeCart() {
       this.item = {

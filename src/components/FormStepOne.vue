@@ -11,7 +11,7 @@
           </select>
         </div>
       </div>
-      <div class="name-row form-row col-7">
+      <div class="name-row form-row col-6">
         <label for="">姓名</label>
         <input
           v-model="BI.name"
