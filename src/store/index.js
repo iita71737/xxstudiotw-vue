@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    shoppingCart: []
+    shoppingCart: JSON.parse(localStorage.getItem("XXcart") || "[]")
   },
   mutations: {
     addToCart(state, product) {
