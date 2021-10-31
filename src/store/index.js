@@ -37,6 +37,15 @@ export default new Vuex.Store({
       // 将删除完毕后的，最新的购物车数据，同步到 本地存储中
       localStorage.setItem('XXcart', JSON.stringify(state.shoppingCart))
     },
+    //购物车种更新商品的购买数量
+    updateprodsInfo(state, product) {
+      state.shoppingCart.some(item => {
+        if (item.id == product.id) {
+          item.amount = product.amount
+        }
+      })
+      localStorage.setItem('XXcart', JSON.stringify(state.shoppingCart))
+    },
     setShippingFee(state, shippingfee) {
       state.shoppingCart = { ...state.shoppingCart, shippingfee }
     },

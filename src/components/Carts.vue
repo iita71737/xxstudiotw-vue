@@ -68,7 +68,9 @@ export default {
           item.amount = 1;
         }
       }
+
       this.calcTotalPrice(); //每次改变商品数量就调用计算总金额函数
+      this.$store.commit("updateprodsInfo", item);
     },
     calcTotalPrice() {
       this.totalMoney = 0;
