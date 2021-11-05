@@ -8,7 +8,7 @@ const PAGE_OFFSET = 0;
 
 let cartController = {
     getCart: (req, res) => {
-        console.log(req.session)
+        console.log('req.session: ', req.session)
         return Cart.findByPk(req.session.cartId, {
             include: [{
                 model: Product,
@@ -25,7 +25,7 @@ let cartController = {
             if (cart === null) {
                 console.log('Not found!');
             } else {
-                console.log(cart);
+                console.log('cart: ', cart);
             }
 
             let totalPrice = cart.items.length > 0 ? cart.items.map(d => d.price * d.LineItem.quantity).reduce((a, b) => a + b) : 0
@@ -37,16 +37,22 @@ let cartController = {
     },
     postCart: async (req, res) => {
         try {
-            console.log(req.session)
-            console.log('===================')
-            console.log(req.body)
-            console.log('===================')
+            //req.session = req.body.productId
+            console.log('req.session: ', req.session)
+            console.log('=================================')
+            console.log('req.body: ', req.body)
+            console.log('=================================')
+
+
             return await Cart.findOrCreate({
                 where: {
-                    id: req.session.cartId || 0,
+                    id: req.session.cartId,
                 },
+                defaults: {
+                    id: 0
+                }
             }).then(cart => {
-                console.log(cart)
+                //console.log(cart)
                 return LineItem.findOrCreate({
                     where: {
                         CartId: cart.id,

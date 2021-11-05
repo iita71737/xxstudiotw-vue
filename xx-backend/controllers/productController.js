@@ -23,6 +23,7 @@ let productController = {
             return res.render('products', {
                 products,
             })
+            // return res.json(products)
         })
     },
 }
