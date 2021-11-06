@@ -1,6 +1,6 @@
 <template>
   <div class="container py-5">
-    <form class="w-100" @submit.prevent.stop="handleSubmit">
+    <form class="w-100 form-container" @submit.prevent.stop="handleSubmit">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">
           Sign In
@@ -54,21 +54,63 @@
 </template>
 
 <script>
+import axios from "../../commons/axios";
+import { Toast } from "../../commons/helpers";
+
 export default {
+  name: "login",
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      isProcessing: false
     };
   },
   methods: {
-    handleSubmit() {
-      const data = JSON.stringify({
-        email: this.email,
-        password: this.password
-      }); // TODO: 向後端驗證使用者登入資訊是否合法
-      console.log("data", data);
+    async handleSubmit() {
+      try {
+        if (!this.email || !this.password) {
+          Toast.fire({
+            icon: "warning",
+            title: "請填入 email 和 password"
+          });
+          return;
+        }
+        this.isProcessing = true;
+        const response = await axios.post("/auth/login", {
+          email: this.email,
+          password: this.password
+        });
+        console.log(response);
+        const jwToken = response.data;
+        global.auth.setToken(jwToken);
+        const { status } = response;
+        // TODO: 取得 API 請求後的資料
+
+        if (status !== 200) {
+          throw new Error(response.message);
+        }
+        this.$router.push("/");
+        this.$router.go();
+      } catch (error) {
+        // 將密碼欄位清空
+        this.password = "";
+        // 顯示錯誤提示
+        Toast.fire({
+          icon: "warning",
+          title: "帳號密碼錯誤"
+        });
+        this.isProcessing = false;
+        console.log("error", error);
+      }
     }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.form-container {
+  font-size: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>

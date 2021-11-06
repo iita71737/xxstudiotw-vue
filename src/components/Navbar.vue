@@ -46,14 +46,31 @@
         </router-link>
 
         <!-- is user is login -->
-        <template v-if="isAuthenticated">
-          <router-link to="#" class="text-dark mr-3 p-2">
-            使用者 您好
-          </router-link>
-          <button type="button" class="btn btn-sm btn-success my-2 my-sm-0">
+        <template v-if="currentUser.nickname">
+          {{ currentUser.nickname }} ，您好
+          <button
+            type="button"
+            class="btn btn-sm btn-success m-2 my-sm-0"
+            @click="logout()"
+          >
             登出
           </button>
-          <router-link :to="{ name: 'checkout' }" class="text-dark mr-3 p-2">
+
+          <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
+            <i class="fas fa-shopping-cart"
+              ><span class="m-1">購物車 </span>
+            </i>
+          </router-link>
+        </template>
+        <template v-if="!currentUser.nickname">
+          訪客，您好
+          <router-link to="/signin" class="text-white mr-3">
+            <button type="button" class="btn btn-sm btn-success m-2 my-sm-0">
+              登入
+            </button>
+          </router-link>
+
+          <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
             <i class="fas fa-shopping-cart"
               ><span class="m-1">購物車 </span>
             </i>
@@ -65,40 +82,38 @@
 </template>
 
 <script>
-// ./src/components/Navbar.vue
-// seed data
-const dummyUser = {
-  currentUser: {
-    id: 1,
-    name: "管理者",
-    email: "root@example.com",
-    image: "https://i.pravatar.cc/300",
-    isAdmin: true
-  },
-  isAuthenticated: true
-};
-
 export default {
-  // Vue 會在沒有資料時使用此預設值
+  name: "Navbar",
   data() {
     return {
-      currentUser: {
-        id: -1,
-        name: "",
-        email: "",
-        image: "",
-        isAdmin: false
-      },
+      currentUser: "",
       isAuthenticated: false
     };
+  },
+  watch: {
+    currentUser: {
+      handler: function() {},
+      deep: true
+    }
   },
   created() {
     this.fetchUser();
   },
   methods: {
     fetchUser() {
-      this.currentUser = { ...this.currentUser, ...dummyUser.currentUser };
-      this.isAuthenticated = dummyUser.isAuthenticated;
+      if (global.auth.getToken) {
+        this.currentUser = global.auth.getUser() || {};
+        if (this.currentUser !== null) {
+          this.isAuthenticated = true;
+        } else {
+          this.isAuthenticated = false;
+        }
+      }
+    },
+    logout() {
+      global.auth.logout();
+      this.isAuthenticated = false;
+      this.$router.push("/signin");
     }
   }
 };

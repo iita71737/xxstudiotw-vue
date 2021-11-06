@@ -21,9 +21,7 @@ import Quotes from "../components/Quotes.vue";
 import NavTabs from "./../components/NavTabs.vue";
 import Slider from "./../components/Slider.vue";
 import CollectionCard from "../components/CollectionCard.vue";
-import jsonfile from "./../../public/dummyData.json";
-
-const dummyData = jsonfile;
+import axios from "../../commons/axios";
 
 export default {
   name: "Home",
@@ -40,9 +38,7 @@ export default {
   },
   watch: {
     collections: {
-      handler: function() {
-        console.log(this.collections); //測試用
-      },
+      handler: function() {},
       deep: true
     }
   },
@@ -51,7 +47,11 @@ export default {
   },
   methods: {
     fetchCollections() {
-      this.collections = dummyData.accessories;
+      axios.get("/accessories").then(response => {
+        //console.log(response.data);
+        this.collections = response.data;
+      });
+
       //console.log(this.collections);
     }
   }
