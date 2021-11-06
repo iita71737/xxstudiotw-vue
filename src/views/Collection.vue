@@ -1,16 +1,12 @@
 <template>
-  <div class="container py-5">
+  <div class="container py-5" v-if="item">
     <collection-detail :initial-collection="item" />
-    <!-- 餐廳評論 RestaurantComments -->
-    <!-- 新增評論 CreateComment -->
   </div>
 </template>
 
 <script>
 import CollectionDetail from "../components/CollectionDetail.vue";
-import jsonfile from "./../../public/dummyData.json";
-
-const dummyData = jsonfile;
+import axios from "../../commons/axios";
 
 export default {
   name: "Collection",
@@ -27,13 +23,14 @@ export default {
     this.fetchItem(itemId);
   },
   methods: {
-    fetchItem(itemId) {
+    async fetchItem(itemId) {
       console.log("fetch id: ", itemId);
-
-      dummyData.accessories.filter(item => {
-        if (item.id == itemId) {
-          this.item = { ...item };
-        }
+      await axios.get("/accessories").then(response => {
+        response.data.filter(item => {
+          if (item.id == itemId) {
+            this.item = { ...item };
+          }
+        });
       });
     }
   }
