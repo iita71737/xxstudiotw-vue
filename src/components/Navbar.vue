@@ -114,6 +114,7 @@ export default {
       global.auth.logout();
       this.isAuthenticated = false;
       this.$router.push("/signin");
+      this.$router.go();
     }
   }
 };
