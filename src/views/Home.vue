@@ -22,6 +22,7 @@ import NavTabs from "./../components/NavTabs.vue";
 import Slider from "./../components/Slider.vue";
 import CollectionCard from "../components/CollectionCard.vue";
 import axios from "../../commons/axios";
+import eventBus from "../../commons/eventBus";
 
 export default {
   name: "Home",
@@ -33,7 +34,8 @@ export default {
   },
   data() {
     return {
-      collections: ""
+      collections: "",
+      copy_products: ""
     };
   },
   watch: {
@@ -44,15 +46,26 @@ export default {
   },
   created() {
     this.fetchCollections();
+    this.getFromBrother();
   },
   methods: {
     fetchCollections() {
       axios.get("/accessories").then(response => {
-        //console.log(response.data);
+        console.log(response.data);
         this.collections = response.data;
+        this.copy_products = response.data;
       });
-
-      //console.log(this.collections);
+    },
+    getFromBrother() {
+      eventBus.$on("emit-data", text => {
+        console.log(text);
+        let _products = [...this.copy_products];
+        _products = _products.filter(p => {
+          const matchArray = p.name.match(new RegExp(text, "gi"));
+          return !!matchArray;
+        });
+        this.collections = _products;
+      });
     }
   }
 };

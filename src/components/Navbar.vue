@@ -10,18 +10,21 @@
       </span>
     </router-link>
 
-    <form class="search-container d-flex align-items-center">
+    <div class="search-container d-flex align-items-center">
       <input
         type="text"
         id="search-bar"
-        placeholder="What can I help you with today?"
+        placeholder="What u want to search?"
+        v-model="searchinput"
+        @keyup.enter="handleSearch"
       />
       <a href="#"
         ><img
+          @click="handleSearch()"
           class="search-icon"
           src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
       /></a>
-    </form>
+    </div>
 
     <button
       class="navbar-toggler"
@@ -82,18 +85,26 @@
 </template>
 
 <script>
+import eventBus from "../../commons/eventBus";
+
 export default {
   name: "Navbar",
   data() {
     return {
       currentUser: "",
-      isAuthenticated: false
+      isAuthenticated: false,
+      searchinput: ""
     };
   },
   watch: {
     currentUser: {
       handler: function() {},
       deep: true
+    },
+    searchinput: {
+      handler: function() {
+        this.handleSearch();
+      }
     }
   },
   created() {
@@ -115,6 +126,9 @@ export default {
       this.isAuthenticated = false;
       this.$router.push("/signin");
       this.$router.go();
+    },
+    handleSearch() {
+      eventBus.$emit("emit-data", this.searchinput);
     }
   }
 };
