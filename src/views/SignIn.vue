@@ -90,6 +90,7 @@ export default {
         if (status !== 200) {
           throw new Error(response.message);
         }
+        Toast.fire({ icon: "success", title: "Login Success" });
         this.$router.push("/");
         this.$router.go();
       } catch (error) {
@@ -111,6 +112,6 @@ export default {
 <style lang="scss" scoped>
 .form-container {
   font-size: 2em;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", serif;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container py-5">
-    <form class="w-100">
+    <form class="w-100 form-container" @submit.prevent.stop="handleSubmit">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">
           Sign Up
@@ -18,6 +18,7 @@
           autocomplete="username"
           required
           autofocus
+          v-model="name"
         />
       </div>
 
@@ -31,6 +32,7 @@
           placeholder="email"
           autocomplete="email"
           required
+          v-model="email"
         />
       </div>
 
@@ -44,6 +46,7 @@
           placeholder="Password"
           autocomplete="new-password"
           required
+          v-model="password"
         />
       </div>
 
@@ -57,6 +60,7 @@
           placeholder="Password"
           autocomplete="new-password"
           required
+          v-model="passwordcheck"
         />
       </div>
 
@@ -80,27 +84,54 @@
 </template>
 
 <script>
+import axios from "../../commons/axios";
+import { Toast } from "../../commons/helpers";
+
 export default {
   data() {
     return {
       name: "",
       email: "",
       password: "",
-      passwordCheck: ""
+      passwordcheck: ""
     };
   },
   methods: {
-    handleSubmit() {
-      const data = JSON.stringify({
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        passwordCheck: this.passwordCheck
-      });
-
-      // TODO: 向後端驗證使用者登入資訊是否合法
-      console.log("data", data);
+    async handleSubmit() {
+      try {
+        // TODO: 向後端驗證使用者登入資訊是否合法
+        if (this.password === this.passwordcheck) {
+          const res = await axios.post("/auth/register", {
+            nickname: this.name,
+            email: this.email,
+            password: this.password,
+            type: 0
+          });
+          console.log(res);
+          const jwToken = res.data;
+          global.auth.setToken(jwToken);
+          Toast.fire({ icon: "success", title: "Sign Up Success" });
+          this.$router.push("/");
+          this.$router.go();
+        }
+      } catch (error) {
+        // 將密碼欄位清空
+        this.password = "";
+        this.passwordcheck = "";
+        // 顯示錯誤提示
+        Toast.fire({
+          icon: "warning",
+          title: "Sign Up Failed"
+        });
+      }
     }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.form-container {
+  font-size: 2em;
+  font-family: "Cormorant Garamond", serif;
+}
+</style>
