@@ -110,9 +110,9 @@ export default {
           console.log(res);
           const jwToken = res.data;
           global.auth.setToken(jwToken);
-          Toast.fire({ icon: "success", title: "Sign Up Success" });
           this.$router.push("/");
           this.$router.go();
+          Toast.fire({ icon: "success", title: "Sign Up Success" });
         }
       } catch (error) {
         // 將密碼欄位清空

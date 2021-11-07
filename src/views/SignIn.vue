@@ -47,7 +47,7 @@
       </div>
 
       <p class="mt-5 mb-3 text-muted text-center">
-        &copy; 2017-2018
+        &copy; 2021-2022
       </p>
     </form>
   </div>
@@ -90,9 +90,9 @@ export default {
         if (status !== 200) {
           throw new Error(response.message);
         }
-        Toast.fire({ icon: "success", title: "Login Success" });
         this.$router.push("/");
         this.$router.go();
+        Toast.fire({ icon: "success", title: "Login Success" });
       } catch (error) {
         // 將密碼欄位清空
         this.password = "";
