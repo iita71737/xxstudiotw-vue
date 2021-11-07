@@ -90,16 +90,16 @@ export default {
         if (status !== 200) {
           throw new Error(response.message);
         }
+        Toast.fire({ icon: "success", title: "Login Success" });
         this.$router.push("/");
         this.$router.go();
-        Toast.fire({ icon: "success", title: "Login Success" });
       } catch (error) {
         // 將密碼欄位清空
         this.password = "";
         // 顯示錯誤提示
         Toast.fire({
           icon: "warning",
-          title: "帳號密碼錯誤"
+          title: "帳號或密碼錯誤"
         });
         this.isProcessing = false;
         console.log("error", error);
