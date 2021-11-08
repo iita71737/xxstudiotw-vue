@@ -110,6 +110,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  margin-top: 10px;
+}
+
 .form-container {
   font-size: 2em;
   font-family: "Cormorant Garamond", serif;
