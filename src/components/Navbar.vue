@@ -38,47 +38,49 @@
       <i class="fas fa-bars"></i>
     </button>
 
-    <div id="navbarSupportedContent" class="navbar-collapse collapse ">
+    <div id="navbarSupportedContent" class="navbar-collapse collapse">
       <div
-        class="d-flex 
- ml-auto align-items-center"
+        class="d-flex align-items-center justify-content-around
+"
       >
-        <!-- is user is admin -->
-        <router-link v-if="currentUser.isAdmin" to="#" class="text-dark p-2">
-          管理員後台
-        </router-link>
-
-        <!-- is user is login -->
-        <template v-if="currentUser.nickname">
-          {{ currentUser.nickname }} ，您好
-          <button
-            type="button"
-            class="btn btn-sm btn-success m-2 my-sm-0"
-            @click="logout()"
-          >
-            登出
-          </button>
-
-          <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
-            <i class="fas fa-shopping-cart"
-              ><span class="m-1">購物車 </span>
-            </i>
+        <div class="p-2">
+          <!-- is user is admin -->
+          <router-link v-if="currentUser.isAdmin" to="#" class="text-dark p-2">
+            管理員後台
           </router-link>
-        </template>
-        <template v-if="!currentUser.nickname">
-          訪客，您好
-          <router-link to="/signin" class="text-white mr-3">
-            <button type="button" class="btn btn-sm btn-success m-2 my-sm-0">
-              登入
+
+          <!-- is user is login -->
+          <template v-if="currentUser.nickname">
+            {{ currentUser.nickname }} ，您好
+            <button
+              type="button"
+              class="btn btn-sm btn-success m-2 my-sm-0"
+              @click="logout()"
+            >
+              登出
             </button>
-          </router-link>
 
-          <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
-            <i class="fas fa-shopping-cart"
-              ><span class="m-1">購物車 </span>
-            </i>
-          </router-link>
-        </template>
+            <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
+              <i class="fas fa-shopping-cart"
+                ><span class="m-1">購物車 </span>
+              </i>
+            </router-link>
+          </template>
+          <template v-if="!currentUser.nickname">
+            訪客，您好
+            <router-link to="/signin" class="text-white mr-3">
+              <button type="button" class="btn btn-sm btn-success m-2 my-sm-0">
+                登入
+              </button>
+            </router-link>
+
+            <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
+              <i class="fas fa-shopping-cart"
+                ><span class="m-1">購物車 </span>
+              </i>
+            </router-link>
+          </template>
+        </div>
       </div>
     </div>
   </nav>
