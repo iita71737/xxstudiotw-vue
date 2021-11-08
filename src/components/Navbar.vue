@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg fixed-top bg-nav">
     <router-link
       class=" text-dark
- navbar-brand p-2 ml-auto"
+ navbar-brand p-2"
       to="/"
     >
       <span class="shop-name">

@@ -2,6 +2,22 @@
   font-family: "Caveat", cursive, "Noto Sans TC", sans-serif;
 }
 
+@media screen and (max-width: 480px) {
+  // 如果使用者之裝置寬度 <= 480px，將會再載入這裡的 CSS。
+  .qutoe-item-img > img {
+    height: auto;
+    width: 350px;
+  }
+
+  .cards {
+    padding: 2rem;
+  }
+
+  .nav-tabs {
+    width: 275px;
+  }
+}
+
 .bg-nav {
   background-color: #e2be9f;
   border: 0.2px grey dashed;
@@ -13,7 +29,7 @@
 }
 
 .search-container {
-  width: 360px;
+  width: auto;
   display: block;
   margin: 0 auto;
 }
@@ -71,8 +87,10 @@ input#search-bar {
   padding: 1rem;
 }
 
-.qutoe-item-img > img {
-  height: 150px;
+.qutoe-item-img {
+  > img {
+    height: 150px;
+  }
 }
 
 //cards
@@ -102,21 +120,13 @@ input#search-bar {
 
 .card-img-overlay {
   transform: translateY(16rem);
-  transition: transform 0.18s ease-in;
-  background-color: rgba(0, 0, 0, 1);
-  .card-text {
-    opacity: 0;
-    transform: translateY(-6rem);
-    transition: opacity 0.05s ease-in, transform 0.25s ease-in;
-  }
-  .btn {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
+  transition: transform 0.25s ease-in;
+  background-color: rgba(0, 0, 0, 0.342);
 }
+
 .card {
   overflow: hidden;
-  background-color: rgb(110, 114, 117);
+  background-color: rgb(84, 86, 88);
   &:hover {
     .card-img {
       mix-blend-mode: overlay;
@@ -124,17 +134,15 @@ input#search-bar {
     .card-img-overlay {
       transform: translateY(0);
       transition: transform 0.25s ease-out;
-      background-color: rgba(207, 204, 204, 0.096);
+      background-color: rgba(70, 59, 59, 0.096);
     }
     .card-text {
       opacity: 1;
       transform: translateX(0);
-      transition: opacity 0.5s ease-out, transform 0.2s ease-out;
     }
     .btn {
       opacity: 1;
       transform: translateX(0);
-      transition: opacity 0.7s ease-out, transform 0.35s ease-out;
     }
   }
 }
