@@ -1,7 +1,7 @@
 <template>
   <div id="xxstudiotw">
     <Navbar />
-    <main role="main" class="container bg-white">
+    <main role="main" class="container bg-white p-2">
       <router-view />
     </main>
     <Footer />
@@ -25,6 +25,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 </style>

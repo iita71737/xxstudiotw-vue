@@ -1,16 +1,16 @@
 <template>
   <div class="d-flex flex-column">
-    <div class="qutoe-item d-flex justify-content-start">
-      <div class="qutoe-item-img ">
+    <div class="quote-item d-flex justify-content-start">
+      <div class="quote-item-img ">
         <img src="./../assets/img/quote/1.png" alt="" />
       </div>
     </div>
-    <div class="qutoe-item d-flex justify-content-end">
-      <div class="qutoe-item-img ">
+    <div class="quote-item d-flex justify-content-end">
+      <div class="quote-item-img ">
         <img src="./../assets/img/quote/2.png" alt="" />
       </div>
     </div>
-    <div class="qutoe-item d-flex flex-column">
+    <div class="quote-item d-flex flex-column">
       <div class="d-flex justify-content-center">
         <p>期望所有與我們有共鳴的靈魂</p>
       </div>

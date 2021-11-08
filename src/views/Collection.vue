@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-5" v-if="item">
+  <div class="m-3" v-if="item">
     <collection-detail :initial-collection="item" />
   </div>
 </template>
