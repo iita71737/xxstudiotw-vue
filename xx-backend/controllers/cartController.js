@@ -37,44 +37,45 @@ let cartController = {
     },
     postCart: async (req, res) => {
         try {
-            //req.session = req.body.productId
+            console.log('=================================')
             console.log('req.session: ', req.session)
             console.log('=================================')
-            console.log('req.body: ', req.body)
-            console.log('=================================')
 
-
-            return await Cart.findOrCreate({
+            const [cart, created] = await Cart.findOrCreate({
                 where: {
-                    id: req.session.cartId,
-                },
-                defaults: {
-                    id: 0
+                    id: req.session.cartId || 0
                 }
-            }).then(cart => {
-                //console.log(cart)
-                return LineItem.findOrCreate({
+            })
+            if (cart) {
+                console.log('=================================')
+                console.log('cart', cart.toJSON())
+                const [lineItem, created] = await LineItem.findOrCreate({
                     where: {
                         CartId: cart.id,
-                        ProductId: req.body.productId
+                        ProductId: req.body.productId,
                     },
                     default: {
                         CartId: cart.id,
                         ProductId: req.body.productId,
+                        quantity: 1
                     }
-                }).then(lineItem => {
-                    return lineItem.update({
-                        quantity: (lineItem.quantity || 0) + 1,
-                    })
+                })
+                if (lineItem) {
+                    console.log('=================================')
+                    console.log('lineItem', lineItem.toJSON())
+                    await lineItem.update(
+                        {
+                            quantity: (lineItem.quantity || 0) + 1,
+                        }
+                    )
                         .then(lineItem => {
                             req.session.cartId = cart.id
-                            return req.session.save(() => {
-                                return res.redirect('back')
+                            req.session.save(() => {
+                                res.redirect('back')
                             })
                         })
-
-                })
-            });
+                }
+            }
         }
         catch (err) {
             console.log(`ERROR! => ${err.name}: ${err.message}`)
