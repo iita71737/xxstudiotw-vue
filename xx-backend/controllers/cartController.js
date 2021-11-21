@@ -7,9 +7,12 @@ const PAGE_LIMIT = 10;
 const PAGE_OFFSET = 0;
 
 let cartController = {
-    getCart: (req, res) => {
+    getCart: async (req, res) => {
+        console.log('=================================')
         console.log('req.session: ', req.session)
-        return Cart.findByPk(req.session.cartId, {
+        console.log('=================================')
+
+        return await Cart.findByPk(req.session.cartId, {
             include: [{
                 model: Product,
                 as: 'items',
@@ -25,10 +28,12 @@ let cartController = {
             if (cart === null) {
                 console.log('Not found!');
             } else {
+                cart = cart.toJSON()
                 console.log('cart: ', cart);
             }
-
             let totalPrice = cart.items.length > 0 ? cart.items.map(d => d.price * d.LineItem.quantity).reduce((a, b) => a + b) : 0
+
+            console.log('cart2: ', cart);
             return res.render('cart', {
                 cart,
                 totalPrice,
@@ -37,9 +42,9 @@ let cartController = {
     },
     postCart: async (req, res) => {
         try {
-            console.log('=================================')
-            console.log('req.session: ', req.session)
-            console.log('=================================')
+            // console.log('=================================')
+            // console.log('req.session: ', req.session)
+            // console.log('=================================')
 
             const [cart, created] = await Cart.findOrCreate({
                 where: {
@@ -47,8 +52,9 @@ let cartController = {
                 }
             })
             if (cart) {
-                console.log('=================================')
-                console.log('cart', cart.toJSON())
+                // console.log('=================================')
+                // console.log('cart', cart.toJSON())
+                // console.log('=================================')
                 const [lineItem, created] = await LineItem.findOrCreate({
                     where: {
                         CartId: cart.id,
@@ -61,19 +67,19 @@ let cartController = {
                     }
                 })
                 if (lineItem) {
-                    console.log('=================================')
-                    console.log('lineItem', lineItem.toJSON())
+                    // console.log('=================================')
+                    // console.log('lineItem', lineItem.toJSON())
+                    // console.log('=================================')
                     await lineItem.update(
                         {
                             quantity: (lineItem.quantity || 0) + 1,
                         }
-                    )
-                        .then(lineItem => {
-                            req.session.cartId = cart.id
-                            req.session.save(() => {
-                                res.redirect('back')
-                            })
+                    ).then(lineItem => {
+                        req.session.cartId = cart.id
+                        req.session.save(() => {
+                            res.redirect('back')
                         })
+                    })
                 }
             }
         }
