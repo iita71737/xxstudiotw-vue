@@ -20,7 +20,7 @@ module.exports = {
       payment_status: {
         type: Sequelize.STRING
       },
-      user_id: {
+      UserId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

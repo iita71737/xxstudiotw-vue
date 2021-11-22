@@ -23,7 +23,7 @@ module.exports = {
       params: {
         type: Sequelize.TEXT
       },
-      order_id: {
+      OrderId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

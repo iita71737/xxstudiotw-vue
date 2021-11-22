@@ -1,5 +1,7 @@
+const db = require('../models')
+const Order = db.Order
+const Product = db.Product;
 const nodemailer = require('nodemailer');
-
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -9,9 +11,25 @@ const transporter = nodemailer.createTransport({
 });
 
 let orderController = {
+    getOrders: async (req, res) => {
+        try {
+            await Order.findAll({
+                include: { model: Product, as: 'items' },
+                raw: true,
+                nest: true,
+            }).then(orders => {
+                console.log(orders)
+                return res.render('orders', {
+                    orders
+                })
+            })
+        } catch (err) {
+            console.log(`ERROR! => ${err.name}: ${err.message}`)
+            res.status(500).send(err.message)
+        }
+    },
 
     postOrder: (req, res) => {
-
         var mailOptions = {
             from: 'iita71737@gmail.com',
             to: 'iita71737+ac@gmail.com',

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         through: {
           model: models.OrderItem, unique: false
         },
-        foreignKey: 'OrderId'
+        foreignKey: 'ProductId'
       });
       Order.belongsTo(models.User)
       Order.hasMany(models.Payment)
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     sn: DataTypes.INTEGER,
     shipping_status: DataTypes.STRING,
     payment_status: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Order',

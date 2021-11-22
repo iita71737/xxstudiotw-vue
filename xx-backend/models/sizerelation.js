@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   SizeRelation.init({
-    size_id: DataTypes.INTEGER,
-    product_id: DataTypes.INTEGER
+    SizeId: DataTypes.INTEGER,
+    ProductId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'SizeRelation',

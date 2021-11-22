@@ -11,7 +11,7 @@ module.exports = {
         payment_method: Math.floor(Math.random() * 3) + 1,
         paid_at: new Date(),
         params: null,
-        order_id: Math.floor(Math.random() * 2) + 1,
+        OrderId: Math.floor(Math.random() * 2) + 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       })

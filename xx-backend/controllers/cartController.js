@@ -8,53 +8,44 @@ const PAGE_OFFSET = 0;
 
 let cartController = {
     getCart: async (req, res) => {
-        console.log('=================================')
-        console.log('req.session: ', req.session)
-        console.log('=================================')
+        try {
+            return await Cart.findByPk(req.session.cartId, {
+                include: [{
+                    model: Product,
+                    as: 'items',
+                    include: [
+                        {
+                            model: Images,
+                            attributes: ['url'],
+                        }
+                    ]
+                }]
+            }).then(cart => {
+                cart = cart || { items: [] }
 
-        return await Cart.findByPk(req.session.cartId, {
-            include: [{
-                model: Product,
-                as: 'items',
-                include: [
-                    {
-                        model: Images,
-                        attributes: ['url'],
-                    }
-                ]
-            }]
-        }).then(cart => {
-            cart = cart || { items: [] }
-            if (cart === null) {
-                console.log('Not found!');
-            } else {
-                cart = cart.toJSON()
-                console.log('cart: ', cart);
-            }
-            let totalPrice = cart.items.length > 0 ? cart.items.map(d => d.price * d.LineItem.quantity).reduce((a, b) => a + b) : 0
-
-            console.log('cart2: ', cart);
-            return res.render('cart', {
-                cart,
-                totalPrice,
+                let totalPrice = cart.items.length > 0 ? cart.items.map(d => d.price * d.LineItem.quantity).reduce((a, b) => a + b) : 0
+                if (cart.items.length != 0) {
+                    //console.log('cart.items', cart.items)
+                    cart = cart.toJSON()
+                }
+                return res.render('cart', {
+                    cart: cart,
+                    totalPrice,
+                })
             })
-        })
+        } catch (err) {
+            console.log(`ERROR! => ${err.name}: ${err.message}`)
+            res.status(500).send(err.message)
+        }
     },
     postCart: async (req, res) => {
         try {
-            // console.log('=================================')
-            // console.log('req.session: ', req.session)
-            // console.log('=================================')
-
             const [cart, created] = await Cart.findOrCreate({
                 where: {
                     id: req.session.cartId || 0
                 }
             })
             if (cart) {
-                // console.log('=================================')
-                // console.log('cart', cart.toJSON())
-                // console.log('=================================')
                 const [lineItem, created] = await LineItem.findOrCreate({
                     where: {
                         CartId: cart.id,
@@ -67,9 +58,6 @@ let cartController = {
                     }
                 })
                 if (lineItem) {
-                    // console.log('=================================')
-                    // console.log('lineItem', lineItem.toJSON())
-                    // console.log('=================================')
                     await lineItem.update(
                         {
                             quantity: (lineItem.quantity || 0) + 1,
@@ -87,6 +75,34 @@ let cartController = {
             console.log(`ERROR! => ${err.name}: ${err.message}`)
             res.status(500).send(err.message)
         }
+    },
+    addCartItem: (req, res) => {
+        LineItem.findByPk(req.params.id).then(lineItem => {
+            lineItem.update({
+                quantity: lineItem.quantity + 1,
+            })
+                .then((lineItem) => {
+                    return res.redirect('back')
+                })
+        })
+    },
+    subCartItem: (req, res) => {
+        LineItem.findByPk(req.params.id).then(lineItem => {
+            lineItem.update({
+                quantity: lineItem.quantity - 1 >= 1 ? lineItem.quantity - 1 : 1,
+            })
+                .then((lineItem) => {
+                    return res.redirect('back')
+                })
+        })
+    },
+    deleteCartItem: (req, res) => {
+        LineItem.findByPk(req.params.id).then(lineItem => {
+            lineItem.destroy()
+                .then((lineItem) => {
+                    return res.redirect('back')
+                })
+        })
     }
 }
 

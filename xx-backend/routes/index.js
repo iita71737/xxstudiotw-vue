@@ -15,6 +15,11 @@ router.get('/products', productController.getProducts)
 router.get('/cart', cartController.getCart)
 router.post('/cart', cartController.postCart)
 
+router.post('/cartItem/:id/add', cartController.addCartItem)
+router.post('/cartItem/:id/sub', cartController.subCartItem)
+router.delete('/cartItem/:id', cartController.deleteCartItem)
+
+router.get('/orders', orderController.getOrders)
 router.post('/order', orderController.postOrder)
 
 module.exports = router;
