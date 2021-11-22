@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-22T06:16:02.392Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="CkXEGTBgJKm73YzPoCXu" version="15.5.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-22T06:16:29.935Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="DRrjyU_E0E6npStbzcIM" version="15.5.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1865" dy="483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -148,7 +148,7 @@
         <mxCell id="HT_0_rMULWLUdgOZs09P-66" value="product_id:FK" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=default;" parent="HT_0_rMULWLUdgOZs09P-61" vertex="1">
           <mxGeometry y="78" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="HT_0_rMULWLUdgOZs09P-67" value="order_Id:FK&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=default;" parent="HT_0_rMULWLUdgOZs09P-61" vertex="1">
+        <mxCell id="HT_0_rMULWLUdgOZs09P-67" value="OrderId:FK&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=#b85450;fillColor=#f8cecc;" parent="HT_0_rMULWLUdgOZs09P-61" vertex="1">
           <mxGeometry y="104" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="CE_BlrqhfSBlNsEcJMGp-0" value="quantity:integer" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=default;" parent="HT_0_rMULWLUdgOZs09P-61" vertex="1">
