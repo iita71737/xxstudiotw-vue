@@ -72,7 +72,7 @@
               </button>
 
               <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
-                <i class="fas fa-shopping-cart"
+                <i class="fas fa-shopping-cart" id="cart"
                   ><span class="m-1">購物車 </span>
                 </i>
               </router-link>

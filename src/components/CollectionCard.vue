@@ -16,6 +16,11 @@
             @click.stop.prevent="addCart(item.id)"
           >
             加入購物車
+            <svg-icon
+              data_iconName="car"
+              className="car_icon"
+              style="width:1.5rem;height:1.5rem"
+            ></svg-icon>
           </button>
           <button
             v-else
@@ -28,6 +33,9 @@
           </button>
         </div>
       </div>
+    </div>
+    <div v-for="(item, index) in showMoveDot" :key="index">
+      <div class="move_dot" ref="ball" v-if="item"></div>
     </div>
   </router-link>
 </template>
@@ -45,6 +53,7 @@ export default {
   },
   data() {
     return {
+      showMoveDot: [], //控制下落的小圆点显示隐藏
       item: this.initialCollection
     };
   },
@@ -55,6 +64,7 @@ export default {
     addCart() {
       this.item = { ...this.item, isInCart: true, amount: 1 };
       this.$store.commit("addToCart", this.item);
+      this.showMoveDot = [...this.showMoveDot, true];
     },
     removeCart(itemId) {
       this.item = {
