@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         through: {
           model: models.OrderItem, unique: false
         },
-        foreignKey: 'ProductId'
+        foreignKey: 'ProductId',
       });
 
     }

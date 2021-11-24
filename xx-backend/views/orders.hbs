@@ -1,12 +1,3 @@
-<div>
-    {{#each orders}}
-    <div>
-        {{this}}
-    </div>
-    {{/each}}
-</div>
-
-
 {{#each orders}}
 <div class="row">
     <div class="col-md-5">
@@ -19,13 +10,15 @@
                 </tr>
             </thead>
             <tbody>
+
                 {{#each this.items}}
                 <tr>
                     <td>{{this.name}}</td>
                     <td>{{this.OrderItem.quantity}}</td>
-                    <td>{{this.price}}</td>
+                    <td>{{ this.price }}</td>
                 </tr>
                 {{/each}}
+
                 <tr>
                     <td></td>
                     <td style="text-align: right;">
@@ -45,12 +38,13 @@
             <li>name: {{this.name}}</li>
             <li>address: {{this.address}}</li>
             <li>phone: {{this.phone}}</li>
+            <li>SerialNumber: {{this.sn}}</li>
             <li>shipping_status: {{this.shipping_status}}</li>
             <li>payment_status: {{this.payment_status}}</li>
         </ul>
 
-        <div style="display: flex; justify-content: space-around;">
-            <form action="/order/{{this.id}}/cancel" method="POST">
+        <div style="display: flex; justify-content: space-around; min-width: 300px;">
+            <form action=" /order/{{this.id}}/cancel" method="POST">
                 <button type="submit" class="btn btn-primary">取消訂單</button>
             </form>
 
