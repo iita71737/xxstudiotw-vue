@@ -47,22 +47,21 @@
     <div class="navitem">
       <div id="navbarSupportedContent" class="navbar-collapse collapse">
         <div
-          class="p-1 d-flex align-items-center justify-content-end
-"
+          class="p-1 d-flex align-items-center justify-content-end"
         >
           <div class="mr-2">
             <!-- is user is admin -->
             <router-link
-              v-if="currentUser.isAdmin"
-              to="#"
+              v-if="isAuthenticated"
+              to="/"
               class="text-dark p-2"
             >
               管理員後台
             </router-link>
 
             <!-- is user is login -->
-            <template v-if="currentUser.nickname">
-              {{ currentUser.nickname }} ，您好
+            <template v-if="currentUser.email">
+              <span > {{ currentUser.nickname }} ，您好</span>
               <button
                 type="button"
                 class="btn btn-sm btn-success m-1 my-sm-0"
@@ -70,16 +69,10 @@
               >
                 登出
               </button>
-
-              <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
-                <i class="fas fa-shopping-cart" id="cart"
-                  ><span class="m-1">購物車 </span>
-                </i>
-              </router-link>
             </template>
-            <template v-if="!currentUser.nickname">
+            <template v-else>
               訪客，您好
-              <router-link to="/signin" class="text-white mr-3">
+              <router-link :to="`/signin`" class="text-white mr-3">
                 <button
                   type="button"
                   class="btn btn-sm btn-success m-1 my-sm-0"
@@ -90,7 +83,7 @@
             </template>
           </div>
           <div class="mr-2">
-            <router-link :to="{ name: 'checkout' }" class="text-dark m-2 p-2">
+            <router-link :to="`/checkout`" class="text-dark m-2 p-2">
               <i class="fas fa-shopping-cart"
                 ><span class="m-1">購物車 </span>
               </i>
@@ -103,53 +96,48 @@
 </template>
 
 <script>
-import eventBus from "../../commons/eventBus";
+import { mapState } from 'vuex'
+import { Toast } from '../../commons/helpers'
 
 export default {
-  name: "Navbar",
-  data() {
+  name: 'Navbar',
+  data () {
     return {
-      currentUser: "",
-      isAuthenticated: false,
-      searchinput: ""
-    };
+      searchinput: ''
+    }
+  },
+  computed: {
+    ...mapState(['currentUser', 'isAuthenticated'])
   },
   watch: {
     currentUser: {
-      handler: function() {},
+      handler: function () {},
       deep: true
     },
     searchinput: {
-      handler: function() {
-        this.handleSearch();
+      handler: function () {
+        this.handleSearch()
       }
     }
   },
-  created() {
-    this.fetchUser();
+  created () {
+    this.fetchUser()
   },
   methods: {
-    fetchUser() {
-      if (global.auth.getToken) {
-        this.currentUser = global.auth.getUser() || {};
-        if (this.currentUser !== null) {
-          this.isAuthenticated = true;
-        } else {
-          this.isAuthenticated = false;
-        }
-      }
+    fetchUser () {
+
     },
-    logout() {
-      global.auth.logout();
-      this.isAuthenticated = false;
-      this.$router.push("/signin");
-      this.$router.go();
+    logout () {  
+      this.$store.commit('setLogout', {})
+      Toast.fire({ icon: 'success', title: 'Logout Success' })   
+      this.$router.push('/signin')
+      global.auth.logout()
     },
-    handleSearch() {
-      eventBus.$emit("emit-data", this.searchinput);
+    handleSearch () {
+      // eventBus.$emit('emit-data', this.searchinput)
     }
   }
-};
+}
 </script>
 
 <style scoped>

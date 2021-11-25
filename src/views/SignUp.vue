@@ -84,49 +84,49 @@
 </template>
 
 <script>
-import axios from "../../commons/axios";
-import { Toast } from "../../commons/helpers";
+import axios from '../../commons/axios'
+import { Toast } from '../../commons/helpers'
 
 export default {
-  data() {
+  data () {
     return {
-      name: "",
-      email: "",
-      password: "",
-      passwordcheck: ""
-    };
+      name: '',
+      email: '',
+      password: '',
+      passwordcheck: ''
+    }
   },
   methods: {
-    async handleSubmit() {
+    async handleSubmit () {
       try {
         // TODO: 向後端驗證使用者登入資訊是否合法
         if (this.password === this.passwordcheck) {
-          const res = await axios.post("/auth/register", {
+          const res = await axios.post('/auth/register', {
             nickname: this.name,
             email: this.email,
             password: this.password,
             type: 0
-          });
-          console.log(res);
-          const jwToken = res.data;
-          global.auth.setToken(jwToken);
-          this.$router.push("/");
-          this.$router.go();
-          Toast.fire({ icon: "success", title: "Sign Up Success" });
+          })
+          console.log(res)
+          const jwToken = res.data
+          global.auth.setToken(jwToken)
+          this.$router.push('/')
+          this.$router.go()
+          Toast.fire({ icon: 'success', title: 'Sign Up Success' })
         }
       } catch (error) {
         // 將密碼欄位清空
-        this.password = "";
-        this.passwordcheck = "";
+        this.password = ''
+        this.passwordcheck = ''
         // 顯示錯誤提示
         Toast.fire({
-          icon: "warning",
-          title: "Sign Up Failed"
-        });
+          icon: 'warning',
+          title: 'Sign Up Failed'
+        })
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

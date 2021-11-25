@@ -54,59 +54,61 @@
 </template>
 
 <script>
-import axios from "../../commons/axios";
-import { Toast } from "../../commons/helpers";
+import axios from '../../commons/axios'
+import { Toast } from '../../commons/helpers'
 
 export default {
-  name: "login",
-  data() {
+  name: 'login',
+  data () {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       isProcessing: false
-    };
+    }
   },
   methods: {
-    async handleSubmit() {
+    async handleSubmit () {
       try {
         if (!this.email || !this.password) {
           Toast.fire({
-            icon: "warning",
-            title: "請填入 email 和 password"
-          });
-          return;
+            icon: 'warning',
+            title: '請填入 email 和 password'
+          })
+          return
         }
-        this.isProcessing = true;
-        const response = await axios.post("/auth/login", {
+        this.isProcessing = true
+        const response = await axios.post('/auth/login', {
           email: this.email,
           password: this.password
-        });
-        console.log(response);
-        const jwToken = response.data;
-        global.auth.setToken(jwToken);
-        const { status } = response;
+        })
+        console.log('response====>:',response)
+        const jwToken = response.data
+        global.auth.setToken(jwToken)
+        const { status } = response
+        
+        this.$store.commit('setCurrentUser', global.auth.getUser() || {})
         // TODO: 取得 API 請求後的資料
-
+      
         if (status !== 200) {
-          throw new Error(response.message);
+          throw new Error(response.message)
         }
-        Toast.fire({ icon: "success", title: "Login Success" });
-        this.$router.push("/");
-        this.$router.go();
+
+        Toast.fire({ icon: 'success', title: 'Login Success' })
+        this.$router.push({ path: '/' })
       } catch (error) {
         // 將密碼欄位清空
-        this.password = "";
+        this.password = ''
         // 顯示錯誤提示
         Toast.fire({
-          icon: "warning",
-          title: "帳號或密碼錯誤"
-        });
-        this.isProcessing = false;
-        console.log("error", error);
+          icon: 'warning',
+          title: '帳號或密碼錯誤'
+        })
+        this.isProcessing = false
+        console.log('error', error)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

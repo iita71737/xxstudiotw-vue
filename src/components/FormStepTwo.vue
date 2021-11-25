@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: "stepTwo",
+  name: 'stepTwo',
   props: {
     step: {
       type: Number,
@@ -54,21 +54,21 @@ export default {
       type: Object
     }
   },
-  data() {
+  data () {
     return {
       shippingfee: 0
-    };
-  },
-  methods: {
-    handleShippingfee() {
-      this.$emit("after-selected-shippingway", this.shippingfee);
-    },
-    fetchData() {
-      this.shippingfee = this.formData.shippingfee;
     }
   },
-  created() {
-    this.fetchData();
+  methods: {
+    handleShippingfee () {
+      this.$emit('after-selected-shippingway', this.shippingfee)
+    },
+    fetchData () {
+      this.shippingfee = this.formData.shippingfee
+    }
+  },
+  created () {
+    this.fetchData()
   }
-};
+}
 </script>

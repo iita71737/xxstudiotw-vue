@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import NotFound from '../views/NotFound.vue'
-// import SignIn from '../views/SignIn.vue'
 import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
+import store from './../store'
 
 const routes = [
   {
@@ -48,14 +45,21 @@ const routes = [
     component: () => import('../views/SignUp.vue')
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: NotFound,
-  },
+    component: NotFound
+  }
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  console.log('to', to)
+  console.log('from', from)
+  next()
 })
 
 export default router

@@ -23,6 +23,6 @@
 
 <script>
 export default {
-  name: "quotes"
-};
+  name: 'quotes'
+}
 </script>

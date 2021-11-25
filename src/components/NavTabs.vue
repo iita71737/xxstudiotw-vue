@@ -3,7 +3,7 @@
     class="nav nav-tabs mb-auto d-flex align-items-center justify-content-between"
   >
     <li class="nav-item m-2">
-      <a href="/restaurants" class="nav-link">
+      <a href="/" class="nav-link">
         Home
       </a>
     </li>
@@ -59,7 +59,7 @@
     </li>
 
     <li class="nav-item">
-      <a href="/restaurants/top" class="nav-link">
+      <a href="/top" class="nav-link">
         New in
       </a>
     </li>

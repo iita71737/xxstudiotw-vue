@@ -39,51 +39,51 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
-  name: "Carts",
+  name: 'Carts',
   props: {
     shippingCost: {
       type: Number,
       required: true
     }
   },
-  data() {
+  data () {
     return {
       totalMoney: 0
-    };
+    }
   },
   computed: {
-    ...mapState(["shoppingCart"])
+    ...mapState(['shoppingCart'])
   },
   methods: {
-    changeMoney(item, number) {
+    changeMoney (item, number) {
       if (number > 0) {
-        item.amount++;
+        item.amount++
       } else {
-        item.amount--;
+        item.amount--
         if (item.amount < 1) {
-          //限制数量最少为1
-          item.amount = 1;
+          // 限制数量最少为1
+          item.amount = 1
         }
       }
 
-      this.calcTotalPrice(); //每次改变商品数量就调用计算总金额函数
-      this.$store.commit("updateprodsInfo", item);
+      this.calcTotalPrice() // 每次改变商品数量就调用计算总金额函数
+      this.$store.commit('updateprodsInfo', item)
     },
-    calcTotalPrice() {
-      this.totalMoney = 0;
-      for (let i in this.shoppingCart) {
+    calcTotalPrice () {
+      this.totalMoney = 0
+      for (const i in this.shoppingCart) {
         this.totalMoney += Number(
           this.shoppingCart[i].amount * this.shoppingCart[i].price
-        );
+        )
       }
-      this.$emit("after-change-amount", this.totalMoney);
+      this.$emit('after-change-amount', this.totalMoney)
     }
   },
-  created() {
-    this.calcTotalPrice();
+  created () {
+    this.calcTotalPrice()
   }
-};
+}
 </script>

@@ -86,7 +86,7 @@
 
 <script>
 export default {
-  name: "stepOne",
+  name: 'stepOne',
   props: {
     step: {
       type: Number,
@@ -96,28 +96,28 @@ export default {
       type: Object
     }
   },
-  data() {
+  data () {
     return {
       BI: {
-        sex: "",
-        name: "",
-        tel: "",
-        email: "",
-        locatation: "",
-        address: ""
+        sex: '',
+        name: '',
+        tel: '',
+        email: '',
+        locatation: '',
+        address: ''
       }
-    };
-  },
-  methods: {
-    handleUserData() {
-      this.$emit("after-filled-out", this.BI);
-    },
-    fetchData() {
-      this.BI = { ...this.formData };
     }
   },
-  created() {
-    this.fetchData();
+  methods: {
+    handleUserData () {
+      this.$emit('after-filled-out', this.BI)
+    },
+    fetchData () {
+      this.BI = { ...this.formData }
+    }
+  },
+  created () {
+    this.fetchData()
   }
-};
+}
 </script>

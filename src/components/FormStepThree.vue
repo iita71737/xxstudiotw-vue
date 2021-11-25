@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  name: "stepThree",
+  name: 'stepThree',
   props: {
     step: {
       type: Number,
@@ -66,26 +66,26 @@ export default {
       type: Object
     }
   },
-  data() {
+  data () {
     return {
       cardData: {
-        cardname: "",
-        cardnumber: "",
-        cardexp: "",
-        cardccv: ""
+        cardname: '',
+        cardnumber: '',
+        cardexp: '',
+        cardccv: ''
       }
-    };
-  },
-  methods: {
-    handleUserCreditCard() {
-      this.$emit("after-filled-creditcard", this.cardData);
-    },
-    fetchData() {
-      this.cardData = { ...this.formData.data };
     }
   },
-  created() {
-    this.fetchData();
+  methods: {
+    handleUserCreditCard () {
+      this.$emit('after-filled-creditcard', this.cardData)
+    },
+    fetchData () {
+      this.cardData = { ...this.formData.data }
+    }
+  },
+  created () {
+    this.fetchData()
   }
-};
+}
 </script>

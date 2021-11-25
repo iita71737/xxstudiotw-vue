@@ -6,12 +6,12 @@
 
 <script>
 export default {
-  name: "DoneMessage",
+  name: 'DoneMessage',
   props: {
     step: {
       type: Number,
       required: true
     }
   }
-};
+}
 </script>

@@ -24,14 +24,18 @@ export default {
   },
   methods: {
     async fetchItem(itemId) {
-      console.log("fetch id: ", itemId);
-      await axios.get("/accessories").then(response => {
-        response.data.filter(item => {
-          if (item.id == itemId) {
-            this.item = { ...item };
-          }
+      try {
+        console.log("fetch id: ", itemId);
+        await axios.get("/accessories").then(response => {
+          response.data.filter(item => {
+            if (item.id === itemId) {
+              this.item = { ...item };
+            }
+          });
         });
-      });
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   }
 };

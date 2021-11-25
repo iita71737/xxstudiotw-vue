@@ -24,20 +24,6 @@
             <p id="caption" ref="captionText"></p>
           </div>
 
-          <!-- Thumbnail image controls -->
-          <!-- <div class="column ">
-            <img
-              v-for="(img, key) in item.image"
-              :key="img.id"
-              ref="dots"
-              class="demo "
-              :src="img"
-              @click="currentSlide(key)"
-              alt="Nature"
-            />
-          </div> -->
-
-          <!-- carousel-3d -->
           <div class="carousel-container">
             <carousel-3d
               :controls-visible="true"
@@ -52,9 +38,7 @@
                 :index="index"
                 :key="index"
               >
-                <template
-                  slot-scope="{ index, isCurrent, leftIndex, rightIndex }"
-                >
+                <template v-slot="{ index, isCurrent, leftIndex, rightIndex }">
                   <img
                     ref="dots"
                     @click="currentSlide(index)"
@@ -265,8 +249,8 @@
 </template>
 
 <script>
-var slideIndex = 0;
 import { Carousel3d, Slide } from "vue-carousel-3d";
+var slideIndex = 0;
 
 export default {
   name: "collectdetail",

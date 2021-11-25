@@ -13,17 +13,12 @@
             type="button"
             class="btn btn-light
             btn-border favorite mr-2"
-            @click.stop.prevent="addCart(item.id)"
+            @click.stop.prevent="addCart(item.id, $event)"
           >
             加入購物車
-            <svg-icon
-              data_iconName="car"
-              className="car_icon"
-              style="width:1.5rem;height:1.5rem"
-            ></svg-icon>
           </button>
           <button
-            v-else
+            v-if="item.isInCart"
             type="button"
             class="btn btn-light
             btn-border favorite mr-2"
@@ -32,10 +27,13 @@
             從購物車移除
           </button>
         </div>
+        <img
+          ref="addImg"
+          class="addCartAnimation"
+          :style="{ top: `${elTop}px`, left: `${elright}px` }"
+          :src="item.image[1]"
+        />
       </div>
-    </div>
-    <div v-for="(item, index) in showMoveDot" :key="index">
-      <div class="move_dot" ref="ball" v-if="item"></div>
     </div>
   </router-link>
 </template>
@@ -51,20 +49,42 @@ export default {
       required: true
     }
   },
+  inject: ["emitter"],
   data() {
     return {
-      showMoveDot: [], //控制下落的小圆点显示隐藏
-      item: this.initialCollection
+      item: this.initialCollection,
+      elTop: 0,
+      elLeft: 0
     };
   },
   computed: {
     ...mapState(["shoppingCart"])
   },
   methods: {
-    addCart() {
+    addCart(id, event) {
       this.item = { ...this.item, isInCart: true, amount: 1 };
       this.$store.commit("addToCart", this.item);
-      this.showMoveDot = [...this.showMoveDot, true];
+      if (event) {
+        const addImg = event.target.parentNode.nextElementSibling;
+        console.log("event.target:", event.target);
+        console.log("addImg:", addImg);
+        addImg.classList.add("show");
+
+        this.elTop = event.target.getBoundingClientRect().top;
+        this.elright = event.target.getBoundingClientRect().right;
+        console.log("x,y:", this.elTop, this.elright);
+
+        setTimeout(() => {
+          addImg.classList.add("move");
+        }, 10);
+        setTimeout(() => {
+          addImg.classList.remove("move", "show");
+        }, 1000);
+      }
+      this.emitter.emit("push-message", {
+        type: "success",
+        message: "已加入購物車"
+      });
     },
     removeCart(itemId) {
       this.item = {
@@ -76,3 +96,42 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.addCartAnimation {
+  position: fixed;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.addCartAnimation.show {
+  opacity: 1;
+}
+.addCartAnimation.move {
+  left: calc(100% - 100px) !important;
+  top: calc(100% - 850px) !important;
+  animation: addscale 1.5s linear 1.5s forwards;
+  transition: all 1s cubic-bezier(0.31, 1.09, 0.77, 0.14);
+
+  /* @include media-breakpoint-up(sm) {
+    left: calc(100% - 64px) !important;
+    top: calc(100% - 152px) !important;
+  } */
+}
+@keyframes addscale {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+.material-icons {
+  vertical-align: text-bottom;
+}
+</style>

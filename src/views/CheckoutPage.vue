@@ -95,16 +95,15 @@
         >
           確認下單<i class="far fa-long-arrow-right"></i>
         </button>
-        <b-button
+        <button
           v-else-if="step > 2"
           :class="{ 'd-none': hiddenNext }"
           class="btn-next"
-          v-b-modal.modal-1
         >
           顯示已完成訂單<i class="far fa-long-arrow-right"></i>
-        </b-button>
+        </button>
 
-        <b-modal
+        <!-- <modal
           id="modal-1"
           centered
           title="BootstrapVue"
@@ -132,7 +131,7 @@
               </li>
             </ul>
           </div>
-        </b-modal>
+        </modal> -->
         <div class="empty-div"></div>
       </div>
       <div class="right-div"></div>
@@ -242,7 +241,6 @@ export default {
       this.switchBtnStatus(this.step);
     },
     saveStorage() {
-      console.log("saveStorage"); //測試完可刪
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.formdata));
     },
     childByValue(childValue) {
