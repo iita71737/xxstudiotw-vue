@@ -4,6 +4,13 @@ import router from './router'
 import './assets/scss/application.scss'
 import store from './store'
 import '../commons/auth'
+import 'swiper/swiper-bundle.css';
+import Loading from '@/components/Loading.vue';
 
+const app = createApp(App);
+app.component('Loading', Loading);
 
-createApp(App).use(router).use(store).mount('#app')
+app.use(router);
+app.use(store)
+app.mount('#app')
+

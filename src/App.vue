@@ -2,33 +2,33 @@
   <div id="xxstudiotw">
     <Navbar :page="page" />
     <main role="main" class="container bg-white p-2">
-      <router-view :key="$route.path" ></router-view>
+      <router-view></router-view>
     </main>
     <Footer />
   </div>
 </template>
 
 <script>
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import emitter from '@/methods/eventBus';
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import emitter from "@/methods/eventBus";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Navbar,
     Footer
   },
   data() {
     return {
-      page: '',
+      page: ""
     };
   },
   provide() {
     return {
-      emitter,
+      emitter
     };
   },
   updated() {
@@ -36,8 +36,8 @@ export default {
   },
   mounted() {
     this.page = this.$route.name;
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>

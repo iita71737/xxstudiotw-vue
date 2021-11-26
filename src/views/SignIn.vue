@@ -81,7 +81,7 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log('response====>:',response)
+        //console.log('response====>:',response)
         const jwToken = response.data
         global.auth.setToken(jwToken)
         const { status } = response

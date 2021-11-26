@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="mr-2">
     <div class="row">
       <!-- The Modal/Lightbox -->
       <div id="myModal" class="modal" ref="modal">
@@ -11,8 +11,8 @@
             v-for="img in item.image"
             :key="img.id"
           >
-            <div class="numbertext">{{ item.name }}</div>
-            <img :src="img" style="width:100%" />
+            <div class="number-text">{{ item.name }}</div>
+            <img :src="img" />
           </div>
 
           <!-- Next/previous controls -->
@@ -24,40 +24,11 @@
             <p id="caption" ref="captionText"></p>
           </div>
 
-          <div class="carousel-container">
-            <carousel-3d
-              :controls-visible="true"
-              :controls-prev-html="'&#10092;'"
-              :controls-next-html="'&#10093;'"
-              :controls-width="30"
-              :controls-height="60"
-              :count="item.image.length"
-            >
-              <slide
-                v-for="(img, index) in item.image"
-                :index="index"
-                :key="index"
-              >
-                <template v-slot="{ index, isCurrent, leftIndex, rightIndex }">
-                  <img
-                    ref="dots"
-                    @click="currentSlide(index)"
-                    :data-index="index"
-                    :class="{
-                      current: isCurrent,
-                      onLeft: leftIndex >= 0,
-                      onRight: rightIndex >= 0
-                    }"
-                    :src="img"
-                  />
-                </template>
-              </slide>
-            </carousel-3d>
-          </div>
-          <!-- carousel-3d -->
+          <!----->
         </div>
       </div>
       <!--Modal-->
+
       <div>
         <div>
           <nav>
@@ -69,9 +40,22 @@
           </nav>
         </div>
 
-        <div class="info-container row mt-4">
-          <div class="col-sm-6">
-            <div class="main-img">
+        <div class="info-container row mt-4 g-5">
+          <div class="col-12 col-lg-6">
+            <!--swiper container -->
+            <div class="swiper-container">
+              <img
+                v-if="!item.image"
+                class="rounded shadow product-img "
+                :src="item.image[0]"
+                :alt="item.name"
+              />
+              <SwiperComponent v-else :product="item" />
+            </div>
+            <!--swiper container -->
+
+            <!-- original modal box-->
+            <!-- <div class="main-img">
               <img
                 ref="img"
                 class="card-img image hover-shadow"
@@ -98,9 +82,9 @@
                   "
                 />
               </div>
-            </div>
+            </div> -->
           </div>
-          <div class="col-sm-6">
+          <div class="col-12 col-lg-6">
             <div class="right-section">
               <h2>{{ item.name }}</h2>
               <div class="price pt-4">
@@ -167,7 +151,7 @@
                       class="nav-link"
                       id="profile-tab"
                       data-toggle="tab"
-                      href="#profile"
+                      href="/#profile"
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
@@ -249,18 +233,14 @@
 </template>
 
 <script>
-import { Carousel3d, Slide } from "vue-carousel-3d";
+import SwiperComponent from "@/components/SwiperComponent.vue";
 var slideIndex = 0;
 
 export default {
-  name: "collectdetail",
-  components: {
-    Carousel3d,
-    Slide
-  },
+  name: "CollectDetail",
+  components: { SwiperComponent },
   props: {
     initialCollection: {
-      type: Object,
       required: true
     }
   },
@@ -269,14 +249,7 @@ export default {
       item: { ...this.initialCollection }
     };
   },
-  watch: {
-    initialCollection(newValue) {
-      this.item = {
-        ...this.item,
-        ...newValue
-      };
-    }
-  },
+  watch: {},
   created() {},
   mounted() {},
   methods: {
@@ -405,7 +378,7 @@ little bit see-through */
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 } /* Number text (1/3 etc) */
-.numbertext {
+.number-text {
   color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
@@ -429,5 +402,11 @@ img.hover-shadow {
 }
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-img {
+  height: 300px;
+  width: 100%;
+  object-position: bottom;
 }
 </style>

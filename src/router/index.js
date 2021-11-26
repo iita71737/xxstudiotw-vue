@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import NotFound from '../views/NotFound.vue'
 import Home from '../views/Home.vue'
-import store from './../store'
+
 
 const routes = [
   {
@@ -35,12 +35,12 @@ const routes = [
     component: () => import('../views/CheckoutPage.vue')
   },
   {
-    path: '/signin',
+    path: '/signIn',
     name: 'sign-in',
     component: () => import('../views/SignIn.vue')
   },
   {
-    path: '/signup',
+    path: '/signUp',
     name: 'sign-up',
     component: () => import('../views/SignUp.vue')
   },
@@ -57,8 +57,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log('to', to)
-  console.log('from', from)
+  //console.log('to', to)
+  //console.log('from', from)
   next()
 })
 

@@ -59,17 +59,17 @@
     </li>
 
     <li class="nav-item">
-      <a href="/top" class="nav-link">
+      <a href="#top" class="nav-link">
         New in
       </a>
     </li>
     <li class="nav-item">
-      <a href="/users/top" class="nav-link">
+      <a href="#users/top" class="nav-link">
         Korea Pre-order
       </a>
     </li>
     <li class="nav-item">
-      <a href="/users/top" class="nav-link">
+      <a href="#users/top" class="nav-link">
         Clothes
       </a>
     </li>

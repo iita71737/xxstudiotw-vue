@@ -7,8 +7,9 @@
     <NavTabs />
     <Slider />
     <quotes />
-    <div class="row cards">
+    <div class="row">
       <CollectionCard
+        class="col m-2"
         v-for="item in collections"
         :key="item.id"
         :initial-collection="item"
@@ -45,7 +46,7 @@ export default {
   watch: {
     collections: {
       handler(val, oldVal) {
-        console.log("val, oldVal", val, oldVal);
+        //console.log("val, oldVal", val, oldVal);
       },
       deep: true
     }
@@ -60,7 +61,7 @@ export default {
         await axios
           .get("/accessories")
           .then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             this.collections = response.data;
             this.copy_products = response.data;
           })

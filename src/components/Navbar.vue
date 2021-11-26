@@ -46,22 +46,16 @@
     </div>
     <div class="navitem">
       <div id="navbarSupportedContent" class="navbar-collapse collapse">
-        <div
-          class="p-1 d-flex align-items-center justify-content-end"
-        >
+        <div class="p-1 d-flex align-items-center justify-content-end">
           <div class="mr-2">
             <!-- is user is admin -->
-            <router-link
-              v-if="isAuthenticated"
-              to="/"
-              class="text-dark p-2"
-            >
+            <router-link v-if="isAuthenticated" to="/" class="text-dark p-2">
               管理員後台
             </router-link>
 
             <!-- is user is login -->
             <template v-if="currentUser.email">
-              <span > {{ currentUser.nickname }} ，您好</span>
+              <span> {{ currentUser.nickname }} ，您好</span>
               <button
                 type="button"
                 class="btn btn-sm btn-success m-1 my-sm-0"
@@ -72,7 +66,7 @@
             </template>
             <template v-else>
               訪客，您好
-              <router-link :to="`/signin`" class="text-white mr-3">
+              <router-link :to="`/signIn`" class="text-white mr-3">
                 <button
                   type="button"
                   class="btn btn-sm btn-success m-1 my-sm-0"
@@ -96,48 +90,46 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { Toast } from '../../commons/helpers'
+import { mapState } from "vuex";
+import { Toast } from "../../commons/helpers";
 
 export default {
-  name: 'Navbar',
-  data () {
+  name: "Navbar",
+  data() {
     return {
-      searchinput: ''
-    }
+      searchinput: ""
+    };
   },
   computed: {
-    ...mapState(['currentUser', 'isAuthenticated'])
+    ...mapState(["currentUser", "isAuthenticated"])
   },
   watch: {
     currentUser: {
-      handler: function () {},
+      handler: function() {},
       deep: true
     },
     searchinput: {
-      handler: function () {
-        this.handleSearch()
+      handler: function() {
+        this.handleSearch();
       }
     }
   },
-  created () {
-    this.fetchUser()
+  created() {
+    this.fetchUser();
   },
   methods: {
-    fetchUser () {
-
+    fetchUser() {},
+    logout() {
+      this.$store.commit("setLogout", {});
+      Toast.fire({ icon: "success", title: "Logout Success" });
+      this.$router.push("/signin");
+      global.auth.logout();
     },
-    logout () {  
-      this.$store.commit('setLogout', {})
-      Toast.fire({ icon: 'success', title: 'Logout Success' })   
-      this.$router.push('/signin')
-      global.auth.logout()
-    },
-    handleSearch () {
+    handleSearch() {
       // eventBus.$emit('emit-data', this.searchinput)
     }
   }
-}
+};
 </script>
 
 <style scoped>

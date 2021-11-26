@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'collection', params: { id: item.id } }">
+  <router-link :to="`/collection/${item.id}`">
     <div class="card-deck">
       <div class="card text-white col">
         <img class="card-img" :src="item.image[1]" />
@@ -28,9 +28,10 @@
           </button>
         </div>
         <img
+          v-show="elTop"
           ref="addImg"
           class="addCartAnimation"
-          :style="{ top: `${elTop}px`, left: `${elright}px` }"
+          :style="{ top: `${elTop}px`, left: `${elLeft}px` }"
           :src="item.image[1]"
         />
       </div>
@@ -66,13 +67,13 @@ export default {
       this.$store.commit("addToCart", this.item);
       if (event) {
         const addImg = event.target.parentNode.nextElementSibling;
-        console.log("event.target:", event.target);
-        console.log("addImg:", addImg);
+        // console.log("event.target:", event.target);
+        // console.log("addImg:", addImg);
         addImg.classList.add("show");
 
         this.elTop = event.target.getBoundingClientRect().top;
-        this.elright = event.target.getBoundingClientRect().right;
-        console.log("x,y:", this.elTop, this.elright);
+        this.elLeft = event.target.getBoundingClientRect().left;
+        // console.log("x,y:", this.elTop, this.elleft);
 
         setTimeout(() => {
           addImg.classList.add("move");
