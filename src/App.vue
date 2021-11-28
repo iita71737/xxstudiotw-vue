@@ -1,5 +1,5 @@
 <template>
-  <div id="xxstudiotw">
+  <div id="app">
     <Navbar :page="page" />
     <main role="main" class="container bg-white p-2">
       <router-view></router-view>

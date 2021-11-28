@@ -24,6 +24,7 @@ import NavTabs from "./../components/NavTabs.vue";
 import Slider from "./../components/Slider.vue";
 import CollectionCard from "../components/CollectionCard.vue";
 import axios from "../../commons/axios";
+import emitter from "@/methods/eventBus";
 
 import Noty from "../components/Noty.vue";
 
@@ -53,7 +54,15 @@ export default {
   },
   created() {
     this.fetchCollections();
-    this.getFromBrother();
+    emitter.on("emit-data", text => {
+      console.log(text);
+      let _products = [...this.copy_products];
+      _products = _products.filter(p => {
+        const matchArray = p.name.match(new RegExp(text, "gi"));
+        return !!matchArray;
+      });
+      this.collections = _products;
+    });
   },
   methods: {
     async fetchCollections() {
@@ -74,17 +83,6 @@ export default {
       } catch (error) {
         console.log("error", error);
       }
-    },
-    getFromBrother() {
-      // eventBus.$on('emit-data', text => {
-      //   console.log(text)
-      //   let _products = [...this.copy_products]
-      //   _products = _products.filter(p => {
-      //     const matchArray = p.name.match(new RegExp(text, 'gi'))
-      //     return !!matchArray
-      //   })
-      //   this.collections = _products
-      // })
     }
   }
 };
