@@ -55,7 +55,7 @@ export default {
   created() {
     this.fetchCollections();
     emitter.on("emit-data", text => {
-      console.log(text);
+      // console.log(text);
       let _products = [...this.copy_products];
       _products = _products.filter(p => {
         const matchArray = p.name.match(new RegExp(text, "gi"));
