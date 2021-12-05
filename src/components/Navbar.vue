@@ -76,8 +76,8 @@
 
           <div>
             <div class="p-1 d-flex align-items-center justify-content-end">
-              <div class="mr-2">
-                <router-link :to="`/checkout`" class="text-dark m-2 p-2">
+              <div class="p-2">
+                <router-link :to="`/checkout`" class="text-dark">
                   <i class="fas fa-shopping-cart"
                     ><span class="m-1">購物車 </span>
                   </i>

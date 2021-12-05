@@ -7,9 +7,9 @@
     <NavTabs />
     <Slider />
     <quotes />
-    <div class="row">
+    <div class="row g-2 mt-2">
       <CollectionCard
-        class="col m-2"
+        class="col mt-2"
         v-for="item in collections"
         :key="item.id"
         :initial-collection="item"

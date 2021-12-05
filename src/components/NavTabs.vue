@@ -18,12 +18,12 @@
         Info</a
       >
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">About</a>
-        <a class="dropdown-item" href="#">FAQs</a>
-        <a class="dropdown-item" href="#">Delivery</a>
-        <a class="dropdown-item" href="#">Contact Us</a>
-        <a class="dropdown-item" href="#">VIP</a>
-        <a class="dropdown-item" href="#">Special</a>
+        <a class="dropdown-item">About</a>
+        <a class="dropdown-item">FAQs</a>
+        <a class="dropdown-item">Delivery</a>
+        <a class="dropdown-item">Contact Us</a>
+        <a class="dropdown-item">VIP</a>
+        <a class="dropdown-item">Special</a>
       </div>
     </li>
     <li class="nav-item dropdown d-flex align-items-center m-2">
@@ -37,12 +37,12 @@
         Shop All</a
       >
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">New In</a>
-        <a class="dropdown-item" href="#">Shop all</a>
-        <a class="dropdown-item" href="#">In-stock</a>
-        <a class="dropdown-item" href="#">Sale</a>
-        <a class="dropdown-item" href="#">Korea-韓國連線</a>
-        <a class="dropdown-item" href="#">Clothes</a>
+        <a class="dropdown-item">New In</a>
+        <a class="dropdown-item">Shop all</a>
+        <a class="dropdown-item">In-stock</a>
+        <a class="dropdown-item">Sale</a>
+        <a class="dropdown-item">Korea-韓國連線</a>
+        <a class="dropdown-item">Clothes</a>
         <ul
           class="dropdown-toggle dropright"
           id="dropdownMenuButton"
@@ -52,7 +52,7 @@
         >
           Acc
           <li class="dropdown-menu" aria-haspopup="true" aria-expanded="false">
-            <a class="dropdown-item" href="#">K gold</a>
+            <a class="dropdown-item">K gold</a>
           </li>
         </ul>
       </div>
@@ -64,12 +64,12 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="#users/top" class="nav-link">
+      <a class="nav-link">
         Korea Pre-order
       </a>
     </li>
     <li class="nav-item">
-      <a href="#users/top" class="nav-link">
+      <a class="nav-link">
         Clothes
       </a>
     </li>
@@ -84,17 +84,17 @@
         Acc</a
       >
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">K gold</a>
+        <a class="dropdown-item">K gold</a>
       </div>
     </li>
 
     <li class="nav-item">
-      <a href="/users/top" class="nav-link">
+      <a class="nav-link">
         X.family
       </a>
     </li>
     <li class="nav-item">
-      <a href="/users/top" class="nav-link">
+      <a class="nav-link">
         Feed Back
       </a>
     </li>

@@ -479,7 +479,7 @@ main {
   }
 }
 
-@media screen and (min-width: 576px) and (max-width: 890px) {
+@media screen and (min-width: 414px) and (max-width: 890px) {
   .step {
     > span {
       width: 52px;
@@ -506,7 +506,7 @@ main {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 414px) {
   main {
     form {
       position: relative;

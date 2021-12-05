@@ -117,10 +117,6 @@ export default {
   animation: addscale 1.5s linear 1.5s forwards;
   transition: all 1s cubic-bezier(0.31, 1.09, 0.77, 0.14);
 
-  /* @include media-breakpoint-up(sm) {
-    left: calc(100% - 64px) !important;
-    top: calc(100% - 152px) !important;
-  } */
 }
 @keyframes addscale {
   0% {
