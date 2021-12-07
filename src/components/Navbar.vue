@@ -1,8 +1,6 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg navbar-light fixed-top bg-nav d-flex justify-content-between"
-  >
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-nav">
+    <div class="container-fluid ">
       <router-link
         class=" text-dark
   navbar-brand p-2"
@@ -24,8 +22,13 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="search-container d-flex align-items-center">
+      <div
+        class="collapse navbar-collapse navbar-section"
+        id="navbarSupportedContent"
+      >
+        <div
+          class="search-container d-flex align-items-center justify-content-start"
+        >
           <input
             type="search"
             id="search-bar"
@@ -44,10 +47,12 @@
           </div>
         </div>
 
-        <div class="mr-2 d-flex align-items-center justify-content-between">
-          <div>
+        <div class="func-section">
+          <div class="item me-5">
             <!-- is user is admin -->
-            <router-link v-if="isAuthenticated" to="/" class="text-dark p-2">
+            <router-link v-if="isAuthenticated" to="/" class="text-dark">
+              <i class="fas fa-user-circle"></i>
+
               管理員後台
             </router-link>
             <!-- is user is login -->
@@ -58,31 +63,25 @@
                 class="btn btn-sm btn-success m-1 my-sm-0"
                 @click="logout()"
               >
-                登出
+                <i class="fas fa-user-circle"></i>
               </button>
             </template>
             <template v-else>
+              <i class="fas fa-user-circle"></i>
               訪客，您好
               <router-link :to="`/signIn`" class="text-white mr-3">
-                <button
-                  type="button"
-                  class="btn btn-sm btn-success m-1 my-sm-0"
-                >
-                  登入
-                </button>
+                <i class="fas fa-sign-in-alt"></i>
               </router-link>
             </template>
           </div>
 
-          <div>
-            <div class="p-1 d-flex align-items-center justify-content-end">
-              <div class="p-2">
-                <router-link :to="`/checkout`" class="text-dark">
-                  <i class="fas fa-shopping-cart"
-                    ><span class="m-1">購物車 </span>
-                  </i>
-                </router-link>
-              </div>
+          <div class="item ms-5">
+            <div class="p-2">
+              <router-link :to="`/checkout`" class="text-dark">
+                <i class="fas fa-shopping-cart"
+                  ><span class="m-1">購物車 </span>
+                </i>
+              </router-link>
             </div>
           </div>
         </div>
@@ -140,5 +139,22 @@ export default {
 .search-icon {
   cursor: pointer;
   margin-left: 5px;
+}
+
+.func-section {
+  display: flex;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 414px) {
+  .navbar-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .func-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 </style>
