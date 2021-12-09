@@ -52,37 +52,6 @@
               />
               <SwiperComponent v-else :product="item" />
             </div>
-            <!--swiper container -->
-
-            <!-- original modal box-->
-            <!-- <div class="main-img">
-              <img
-                ref="img"
-                class="card-img image hover-shadow"
-                :src="item.image[0]"
-                @click="
-                  openModal();
-                  currentSlide(0);
-                "
-              />
-            </div>
-            <div class="side-img row ">
-              <div
-                class="card-container col-sm-4 p-2"
-                v-for="(img, key) in item.image"
-                :key="img.id"
-              >
-                <img
-                  class="card-img image"
-                  :src="img"
-                  ref="img"
-                  @click="
-                    openModal();
-                    currentSlide(key);
-                  "
-                />
-              </div>
-            </div> -->
           </div>
           <div class="col-12 col-lg-6">
             <div class="right-section">
@@ -103,13 +72,13 @@
                   <option value="3">Three</option>
                 </select>
               </div>
-              <div class="btn-section row m-1">
+              <div class="btn-section row p-1">
                 <router-link
                   :to="{ name: 'checkout', params: item.id }"
                   class="text-dark p-2"
                 >
-                  <button class="btn btn-outline-dark mr-2" type="submit">
-                    buy now
+                  <button class="btn btn-outline-dark " type="submit">
+                    <i class="fas fa-shopping-cart "></i> buy now
                   </button>
                 </router-link>
                 <button
@@ -119,6 +88,7 @@
             btn-border favorite mr-2"
                   @click.stop.prevent="addCart"
                 >
+                  <i class="fas fa-shopping-cart "></i>
                   加入購物車
                 </button>
                 <button
@@ -136,88 +106,75 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a
-                      class="nav-link active"
+                      class="nav-link "
+                      :class="{ active: this.nowTabs === 'description' }"
                       id="home-tab"
                       data-toggle="tab"
                       role="tab"
                       aria-controls="home"
                       aria-selected="true"
-                      >商品描述</a
-                    >
+                      @click="clickTabs('description')"
+                      >商品描述
+                    </a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link"
+                      :class="{ active: this.nowTabs === 'discount' }"
                       id="profile-tab"
                       data-toggle="tab"
                       role="tab"
                       aria-controls="profile"
                       aria-selected="false"
-                      >優惠活動</a
-                    >
+                      @click="clickTabs('discount')"
+                      >優惠活動
+                    </a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link"
+                      :class="{ active: this.nowTabs === 'precaution' }"
                       id="contact-tab"
                       data-toggle="tab"
                       role="tab"
                       aria-controls="contact"
                       aria-selected="false"
+                      @click="clickTabs('precaution')"
                       >注意事項</a
                     >
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                   <div
-                    class="tab-pane fade show active"
+                    class="tab-pane fade show
+"
+                    :class="{ active: this.nowTabs === 'description' }"
                     id="home"
                     role="tabpanel"
                     aria-labelledby="home-tab"
                   >
-                    <div class="container ">
-                      <h4 class="d-flex justify-content-center m-4">
-                        商品描述
-                      </h4>
-                      <ul class="info-detail">
-                        <li>
-                          {{ item.specification }}
-                        </li>
-                        <li>
-                          {{ item.material }}
-                        </li>
-                        <li>
-                          {{ item.color }}
-                        </li>
-                        <li>
-                          {{ item.seal }}
-                        </li>
-                        <li>
-                          {{ item.remark }}
-                        </li>
-                      </ul>
-                      <ul class="info-notice mt-4">
-                        <li v-for="line in item.description" :key="line.id">
-                          {{ line }}
-                        </li>
-                      </ul>
-                    </div>
+                    <Description
+                      :item="item"
+                      v-if="this.nowTabs === 'description'"
+                    />
                   </div>
                   <div
                     class="tab-pane fade"
+                    :class="{ show, active: this.nowTabs === 'discount' }"
                     id="profile"
                     role="tabpanel"
                     aria-labelledby="profile-tab"
                   >
-                    ...
+                    <Discount v-if="this.nowTabs === 'discount'" />
                   </div>
                   <div
                     class="tab-pane fade"
+                    :class="{ show, active: this.nowTabs === 'precaution' }"
                     id="contact"
                     role="tabpanel"
                     aria-labelledby="contact-tab"
                   >
-                    ...
+                    <Precautions v-if="this.nowTabs === 'precaution'" />
                   </div>
                 </div>
               </div>
@@ -231,11 +188,19 @@
 
 <script>
 import SwiperComponent from "@/components/SwiperComponent.vue";
+import Description from "../components/Description.vue";
+import Discount from "../components/Discount.vue";
+import Precautions from "../components/Precautions.vue";
 var slideIndex = 0;
 
 export default {
   name: "CollectDetail",
-  components: { SwiperComponent },
+  components: {
+    SwiperComponent,
+    Description,
+    Discount,
+    Precautions
+  },
   props: {
     initialCollection: {
       required: true
@@ -243,7 +208,8 @@ export default {
   },
   data() {
     return {
-      item: { ...this.initialCollection }
+      item: { ...this.initialCollection },
+      nowTabs: "description"
     };
   },
   watch: {},
@@ -290,6 +256,9 @@ export default {
     removeCart(itemId) {
       this.item = { ...this.item, isInCart: false };
       this.$store.commit("removeFormCart", itemId);
+    },
+    clickTabs(tabName) {
+      this.nowTabs = tabName;
     }
   }
 };

@@ -78,7 +78,7 @@
           <div class="item ms-5">
             <div class="p-2">
               <router-link :to="`/checkout`" class="text-dark">
-                <i class="fas fa-shopping-cart"
+                <i class="fas fa-shopping-cart "
                   ><span class="m-1">購物車 </span>
                 </i>
               </router-link>
@@ -131,30 +131,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #navbarSupportedContent {
   font-family: "Noto Sans TC", sans-serif;
 }
-
 .search-icon {
   cursor: pointer;
   margin-left: 5px;
 }
-
 .func-section {
   display: flex;
   align-items: baseline;
 }
-
 @media screen and (max-width: 414px) {
-  .navbar-section {
+  .show {
     display: flex;
     flex-direction: column;
-  }
-  .func-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .func-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 </style>
