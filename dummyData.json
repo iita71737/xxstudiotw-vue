@@ -1,0 +1,408 @@
+{
+    "accessories": [
+        {
+            "id": 1,
+            "name": "=9K金= 迷你一字鑲嵌鋯石吊墜",
+            "price": 1080,
+            "stock": 5,
+            "size": {
+                " 固定": "單一尺寸"
+            },
+            "specification": "寬約1.3mm，總高1.3cm，吊墜孔徑3.5*1.5mm",
+            "material": "9K金，鋯石",
+            "color": "淡金",
+            "seal": "AU375",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109314.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109326.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109327.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109325.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109321.jpg?width=1024&format=webp"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為吊墜價格，不含鏈條",
+                "line2": "項鍊鏈條加購 🔗",
+                "line3": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 5,
+            "Category": {
+                "id": 5,
+                "name": "pendant",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": true,
+            "isInCart": false
+        },
+        {
+            "id": 2,
+            "name": "=14K金= 百搭簡約手鍊裸練素鏈",
+            "price": 1380,
+            "stock": 5,
+            "size": {
+                "固定": "單一尺寸"
+            },
+            "specification": "長約16公分；寬約1.1mm",
+            "material": "14K金",
+            "color": "淡金",
+            "seal": "AU585（14K金標準含量）",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109156.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109160.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109163.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22109168.jpg?width=1024&format=webp"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單鏈條⛓️價格，不含吊墜",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 5,
+            "Category": {
+                "id": 5,
+                "name": "pendant",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 3,
+            "name": "=14K金= 簡約百搭短項鍊裸練",
+            "price": 2160,
+            "stock": 5,
+            "size": {
+                "40cm": "含扣子總長度約40cm：適合脖型纖細者",
+                "42cm": "含扣子總長度約42cm：適合脖型一般者",
+                "45cm": "含扣子總長度約45cm：最大眾尺寸，脖型纖細一般皆可配戴",
+                "42+3cm": "45cm款（42cm+3cm延長鏈）：扣子可扣在42cm處"
+            },
+            "specification": "四種尺寸，可參考配戴圖",
+            "material": "14K金",
+            "color": "淡金",
+            "seal": "AU585（14K金標準含量）",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108826.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108827.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108828.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108829.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108830.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6506802.png"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單鏈條⛓️價格，不含吊墜",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 4,
+            "Category": {
+                "id": 4,
+                "name": "necklace",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 4,
+            "name": "=9K金= 迷你真金耳環耳堵耳塞",
+            "price": 330,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "4mm",
+            "material": "9K金",
+            "color": "淡金",
+            "seal": "375",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108738.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108742.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108743.jpg?width=1024&format=webp"
+        ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 5,
+            "name": "=14K金= 迷你真金耳環耳堵耳塞",
+            "price": 350,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "4mm",
+            "material": "14K金",
+            "color": "淡金",
+            "seal": "14K",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108674.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108675.jpg?width=1024&format=webp"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 6,
+            "name": "=9K金= 精緻滿鑽小球耳圈",
+            "price": 1280,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "耳圈總高19mm，小球直徑約4.5mm，耳圈內徑約10mm，穿過耳洞部分耳針長約7mm，針粗約0.8mm",
+            "material": "9K金，鋯石",
+            "color": "淺金",
+            "seal": "",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103439.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103498.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22103522.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)"
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 7,
+            "name": "=9K金= 光版氣質短鏈小鑽精緻耳圈",
+            "price": 1180,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "耳圈寬約1.5mm，總高約19m，鋯石直徑2mm，耳圈內徑約9mm，穿過耳洞部分耳針長6mm，耳針粗約0.7mm",
+            "material": "9K金，鋯石",
+            "color": "淺金",
+            "seal": "Au375",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108610.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108612.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108614.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108613.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108611.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)",
+                "line3": "<br>🤍 推薦<br>光版極簡耳圈，下方超短鏈條設計搭配吊墜一顆六爪鋯石，小小點綴俏皮不張揚，上課上班都適合"
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 8,
+            "name": "=9K金= 側邊鑲嵌鋯石原片金色小圈耳環",
+            "price": 1280,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "總高17mm，原片直徑3.5mm，耳圈內徑約9.8mm，穿過耳洞部分耳針長約6mm，針粗約0.6mm",
+            "material": "9K金，鋯石",
+            "color": "淺金",
+            "seal": "Au375",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108588.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108589.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108586.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108587.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+        ],
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)",
+                "line3": ""
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        },
+        {
+            "id": 9,
+            "name": "=9K金= 井字型造型鑲嵌鋯石小清新耳釘",
+            "price": 740,
+            "stock": 5,
+            "size": {
+                "單只": "single",
+                "一對": "double"
+            },
+            "specification": "大小約6mm，耳釘長10mm，耳釘粗約0.65mm",
+            "material": "9K金，鋯石",
+            "color": "淺金",
+            "seal": "Au375",
+            "image": [
+                "https://cdn.store-assets.com/s/270188/i/21948454.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/22108585.png?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/21948455.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/i/21948456.jpg?width=1024&format=webp",
+                "https://cdn.store-assets.com/s/270188/f/6477378.png",
+                "https://cdn.store-assets.com/s/270188/f/6505694.png"
+            ]
+            ,
+            "remark": "真金材質可碰水，不過敏不褪色",
+            "createdAt": "2021-09-08T08:34:40.000Z",
+            "updatedAt": "2021-09-15T03:53:17.000Z",
+            "description": {
+                "line1": "此價格為單支價，需要一對請下單2個",
+                "line2": "飾品單價>$1000自動配贈品牌訂製首飾盒及提袋(不挑款)",
+                "line3": "此款不配耳堵，須另外加購"
+            },
+            "CategoryId": 3,
+            "Category": {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            "isFollowed": false,
+            "isInCart": false
+        }
+    ],
+        "categories": [
+            {
+                "id": 1,
+                "name": "中式料理",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 2,
+                "name": "日本料理",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 3,
+                "name": "earrings",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 4,
+                "name": "necklace",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 5,
+                "name": "pendant",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 6,
+                "name": "美式料理",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 7,
+                "name": "複合式料理",
+                "createdAt": "2021-09-08T08:34:40.000Z",
+                "updatedAt": "2021-09-08T08:34:40.000Z"
+            },
+            {
+                "id": 61,
+                "name": "宇宙料理",
+                "createdAt": "2021-09-13T12:20:10.000Z",
+                "updatedAt": "2021-09-15T03:06:25.000Z"
+            }
+        ],
+            "categoryId": "",
+                "page": 1,
+                    "totalPage": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                        "prev": 1,
+                            "next": 2
+}
